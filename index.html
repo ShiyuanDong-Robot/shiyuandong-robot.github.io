@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiyuan Dong's Homepage</title>
+    <meta name="description" content="Shiyuan Dong's academic homepage. Research interests include FBG-based sensors, tactile sensing, and medical robotics.">
     <style>
-        /* 全局样式重置与基础设置 - 重置默认样式，确保跨浏览器一致性 */
+        :root {
+            --bg: #ffffff;
+            --card-bg: #fcfcfc;
+            --text: #333333;
+            --heading: #222222;
+            --muted: #555555;
+            --subtle: #666666;
+            --border: #e0e0e0;
+            --link: #004080;
+            --link-hover: #002b57;
+            --accent: #f4f7fb;
+            --tag-bg: #eef4fb;
+            --tag-text: #234a73;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --max-width: 1200px;
+            --nav-offset: 90px;
+            --radius: 12px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,151 +32,173 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
-        /* 页面主体样式 - 设置背景、颜色、布局和响应式间距 */
-        body {
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 20px 20px;
-            padding-top: 80px; /* 为固定导航栏预留空间 */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-offset);
         }
 
-        /* 导航栏容器 - 全屏宽度，固定定位，提供阴影和边框 */
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px 20px 20px;
+            padding-top: var(--nav-offset);
+        }
+
         .nav-container {
-            width: 100vw;
+            width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 999;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }
 
-        /* 导航栏内容 - 居中对齐，设置链接样式和间距 */
         .nav-bar {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 15px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px 22px;
         }
 
         .nav-bar a {
-            color: #666666;
+            color: var(--subtle);
             text-decoration: none;
-            margin-right: 25px;
-            font-size: 16px;
+            font-size: 15px;
             transition: color 0.2s ease;
+            white-space: nowrap;
         }
 
         .nav-bar a.homepage-link {
-            color: #333333;
+            color: var(--text);
             font-weight: 600;
-            margin-right: 45px;
+            margin-right: 10px;
         }
 
         .nav-bar a:hover {
-            color: #000;
+            color: #000000;
         }
 
-        /* 主体布局 - 使用 Flexbox 创建两列布局，左侧侧边栏，右侧内容区 */
         .main-container {
             display: flex;
-            gap: 80px; /* 列之间的间距 */
-            max-width: 1200px;
+            gap: 72px;
+            max-width: var(--max-width);
             margin: 0 auto;
         }
 
-        /* 左侧侧边栏 - 固定宽度，粘性定位，包含个人信息 */
         .sidebar {
             width: 240px;
             flex-shrink: 0;
             position: sticky;
-            top: 80px;
+            top: calc(var(--nav-offset) + 10px);
             align-self: flex-start;
-            padding: 0; /* 移除内边距，所有内容左对齐 */
         }
 
-        /* 头像样式 - 椭圆形，设置尺寸和边框 */
         .profile-img {
             width: 200px;
             height: 240px;
             border-radius: 100px / 120px;
             object-fit: cover;
-            margin-bottom: 25px; /* 头像下边距 */
-            border: 1px solid #e0e0e0;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
             display: block;
             margin-left: 0;
-            margin-right: auto; /* 左对齐 */
+            margin-right: auto;
         }
 
-        /* 侧边栏标题样式 - 姓名样式 */
-        .sidebar h2 {
-            font-size: 20px;
+        .sidebar h1 {
+            font-size: 28px;
             font-weight: 700;
-            color: #222222;
-            margin-bottom: 15px; /* 标题下边距 */
-            text-align: left;
+            color: var(--heading);
+            margin-bottom: 14px;
             line-height: 1.2;
         }
 
-        /* 侧边栏简介样式 - 研究方向等文本 */
         .sidebar .bio {
-            color: #555555;
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 15px; /* 简介下边距 */
-            text-align: left;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
-        /* 信息项样式 - 联系方式等列表项 */
         .sidebar .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 18px; /* 项间距 */
-            font-size: 16px;
+            margin-bottom: 14px;
+            font-size: 15px;
             color: #444444;
-            justify-content: flex-start; /* 左对齐 */
+            justify-content: flex-start;
         }
 
-        /* 图标样式 - 信息项前的图标 */
         .sidebar .info-item .icon {
-            margin-right: 12px; /* 图标右边距 */
+            margin-right: 12px;
             color: #444444;
             width: 18px;
             height: 18px;
             flex-shrink: 0;
         }
 
-        /* 链接样式 - 侧边栏链接的默认和悬停状态 */
         .sidebar .info-item a {
-            color: #444444; /* 默认颜色 */
+            color: #444444;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .sidebar .info-item a:hover {
-            color: #004080; /* 悬停时更深的蓝色 */
+            color: var(--link);
             text-decoration: underline;
         }
 
-        /* 右侧内容区 - 主内容区域 */
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background-color: var(--card-bg);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .link-button:hover {
+            color: var(--link);
+            border-color: #c7d6e8;
+            background-color: var(--accent);
+        }
+
         .content {
             flex-grow: 1;
+            min-width: 0;
         }
 
-        /* 内容区块样式 - 每个部分的基础样式 */
         .content-section {
-            margin-bottom: 40px;
+            margin-bottom: 44px;
+            scroll-margin-top: 110px;
         }
 
-        .content-section h3 {
-            font-size: 20px;
+        .content-section h2 {
+            font-size: 22px;
             margin-bottom: 15px;
-            color: #222222;
+            color: var(--heading);
             padding-bottom: 8px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border);
         }
 
         .content-section p {
@@ -172,16 +213,17 @@
         }
 
         .content-section li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 15px;
         }
 
         .content-section a {
-            color: #004080;
+            color: var(--link);
             text-decoration: none;
         }
 
         .content-section a:hover {
+            color: var(--link-hover);
             text-decoration: underline;
         }
 
@@ -190,65 +232,177 @@
             font-style: italic;
         }
 
-        /* 响应式设计 - 手机端适配 */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            .main-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-            .sidebar {
-                width: 100%;
-                margin-bottom: 20px;
-                position: static;
-                top: auto;
-            }
-            .profile-img {
-                margin: 0 auto 25px;
-            }
-            .sidebar h2, .sidebar .bio, .sidebar .info-item {
-                text-align: center;
-                justify-content: center;
-            }
-            .nav-bar {
-                padding: 15px 10px;
-            }
-            .nav-bar a {
-                margin-right: 15px;
-                font-size: 14px;
-            }
-            .nav-bar a.homepage-link {
-                margin-right: 25px;
-            }
+        .section-note {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 16px;
         }
 
-        /* 图标样式定义 - 使用 SVG 数据 URL 定义图标 */
+        .subheading {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--heading);
+            margin-bottom: 14px;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pub-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--card-bg);
+            padding: 18px 20px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .pub-item:hover {
+            border-color: #d0dbe8;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .pub-title {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.45;
+            color: var(--heading);
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .pub-venue {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .pub-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
         .icon {
             display: inline-block;
             background-size: contain;
             background-repeat: no-repeat;
             vertical-align: middle;
         }
-        /* 地址图标 - 地图定位图标 */
+
         .icon-map {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
         }
-        /* 邮箱图标 - 信封图标 */
+
         .icon-email {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
         }
-        /* Google Scholar 图标 - 毕业帽图标 */
+
         .icon-scholar {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding-top: 120px;
+            }
+
+            :root {
+                --nav-offset: 120px;
+            }
+
+            .main-container {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --nav-offset: 20px;
+            }
+
+            body {
+                padding-top: 20px;
+            }
+
+            .nav-container {
+                position: static;
+                width: 100%;
+            }
+
+            .nav-bar {
+                padding: 14px 10px;
+                gap: 8px 14px;
+                justify-content: center;
+            }
+
+            .nav-bar a {
+                font-size: 14px;
+            }
+
+            .main-container {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 0;
+                position: static;
+                top: auto;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin: 0 auto 24px;
+            }
+
+            .sidebar .info-item,
+            .quick-links {
+                justify-content: center;
+            }
+
+            .sidebar h1,
+            .sidebar .bio {
+                text-align: center;
+            }
+
+            .content-section {
+                scroll-margin-top: 24px;
+            }
+
+            .pub-item {
+                padding: 16px;
+            }
+
+            .pub-title {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏部分 - 固定在页面顶部，提供页面跳转链接 -->
-    <div class="nav-container">
-        <div class="nav-bar">
+    <header class="nav-container">
+        <nav class="nav-bar" aria-label="Primary navigation">
             <a href="#homepage" class="homepage-link">Homepage</a>
             <a href="#about-me">About Me</a>
             <a href="#news">News</a>
@@ -256,146 +410,239 @@
             <a href="#honors-and-awards">Honors and Awards</a>
             <a href="#selected-service">Selected Service</a>
             <a href="#invited-talks">Invited Talks</a>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- 主体内容区域 - 包含侧边栏和主要内容 -->
-    <div class="main-container">
-        <!-- 左侧侧边栏 - 显示个人信息、头像和联系方式 -->
-        <div class="sidebar">
-            <img src="images/profile.png" alt="Shiyuan Dong" class="profile-img">
-            <h2>Shiyuan Dong</h2>
-            <p class="bio">FBG-based sensors, Tactile sensors for medical robotics.</p>
+    <main class="main-container" id="homepage">
+        <aside class="sidebar">
+            <img src="images/profile.png" alt="Portrait of Shiyuan Dong" class="profile-img">
+            <h1>Shiyuan Dong</h1>
+            <p class="bio">FBG-based sensors, tactile sensors for medical robotics.</p>
             <p class="bio">Ph.D. student @ SJTU BME</p>
+
             <div class="info-item">
-                <span class="icon icon-map"></span>
+                <span class="icon icon-map" aria-hidden="true"></span>
                 <span>Shanghai</span>
             </div>
+
             <div class="info-item">
-                <span class="icon icon-email"></span>
-                <a href="mailto:dongshiyuan@sjtu.edu.cn">Email</a>
-            </div>
-            <div class="info-item">
-                <span class="icon icon-scholar"></span>
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a>
+                <span class="icon icon-email" aria-hidden="true"></span>
+                <a href="mailto:dongshiyuan@sjtu.edu.cn">dongshiyuan@sjtu.edu.cn</a>
             </div>
 
-        </div>
+            <div class="info-item">
+                <span class="icon icon-scholar" aria-hidden="true"></span>
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            </div>
 
-        <!-- 右侧内容区 - 显示主要学术内容 -->
+            <div class="quick-links">
+                <a class="link-button" href="mailto:dongshiyuan@sjtu.edu.cn">Email</a>
+                <a class="link-button" href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Scholar</a>
+            </div>
+        </aside>
+
         <div class="content">
-            <!-- 关于我部分 - 介绍背景和研究兴趣 -->
-            <div class="content-section" id="about-me">
+            <section class="content-section" id="about-me">
+                <h2>About Me</h2>
                 <p>
-                    I am currently a Ph.D. student at the IT3D Lab at the <a href="https://bme.sjtu.edu.cn/" target="_blank">School of Biomedical Engineering</a>, 
-                    <a href="https://www.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a>, supervised by 
-                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/964" target="_blank">Prof. Fang Chen</a>, and 
-                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/966" target="_blank">Hongen Liao</a>. 
-                    Previously, I was a visiting student with the Research Centre for 
-                    <a href="https://coet.siat.ac.cn/" target="_blank">Opto-Electronic Engineering and Technology</a>, 
-                    <a href="https://www.siat.ac.cn/" target="_blank">Shenzhen Institute of Advanced Technology</a>, 
-                    <a href="https://www.cas.cn/" target="_blank">Chinese Academy of Sciences</a>, guided by 
-                    <a href="https://people.ucas.edu.cn/~xutiantian" target="_blank">Prof. Tiantian Xu</a>, 
-                    <a href="https://people.ucas.edu.cn/~zhengkunyi" target="_blank">Zhengkun Yi</a>, and 
-                    <a href="https://people.ucas.edu.cn/~0047027" target="_blank">Yuming Dong</a>; 
-                    the <a href="https://robot.hit.edu.cn/" target="_blank">State Key Laboratory of Robotics and System</a>, 
-                    <a href="https://www.hit.edu.cn/" target="_blank">Harbin Institute of Technology</a>, guided by 
-                    <a href="https://homepage.hit.edu.cn/dongw" target="_blank">Prof. Wei Dong</a>, and 
-                    <a href="https://homepage.hit.edu.cn/gaoyongzhuo" target="_blank">Yongzhuo Gao</a>; 
-                    and the <a href="https://ciram.fudan.edu.cn/" target="_blank">College of Intelligent Robotics and Advanced Manufacturing</a>, 
-                    Fudan Univerisity, guided by 
-                    <a href="https://faet.fudan.edu.cn/e4/6a/c23898a255082/page.htm" target="_blank">Prof. Yunlong Zhu</a> and 
-                    <a href="https://faet.fudan.edu.cn/c8/20/c23904a706592/page.htm" target="_blank">Chenyao Bai</a>.
+                    I am currently a Ph.D. student at the IT3D Lab at the
+                    <a href="https://bme.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">School of Biomedical Engineering</a>,
+                    <a href="https://www.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Shanghai Jiao Tong University</a>,
+                    supervised by
+                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/964" target="_blank" rel="noopener noreferrer"><strong>Prof. Fang Chen</strong></a> and
+                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/966" target="_blank" rel="noopener noreferrer"><strong>Prof. Hongen Liao</strong></a>.
+                    Previously, I was a visiting student with the Research Centre for
+                    <a href="https://coet.siat.ac.cn/" target="_blank" rel="noopener noreferrer">Opto-Electronic Engineering and Technology</a>,
+                    <a href="https://www.siat.ac.cn/" target="_blank" rel="noopener noreferrer">Shenzhen Institute of Advanced Technology</a>,
+                    <a href="https://www.cas.cn/" target="_blank" rel="noopener noreferrer">Chinese Academy of Sciences</a>,
+                    guided by
+                    <a href="https://people.ucas.edu.cn/~xutiantian" target="_blank" rel="noopener noreferrer"><strong>Prof. Tiantian Xu</strong></a>,
+                    <a href="https://people.ucas.edu.cn/~zhengkunyi" target="_blank" rel="noopener noreferrer"><strong>Zhengkun Yi</strong></a>, and
+                    <a href="https://people.ucas.edu.cn/~0047027" target="_blank" rel="noopener noreferrer"><strong>Yuming Dong</strong></a>;
+                    the
+                    <a href="https://robot.hit.edu.cn/" target="_blank" rel="noopener noreferrer">State Key Laboratory of Robotics and System</a>,
+                    <a href="https://www.hit.edu.cn/" target="_blank" rel="noopener noreferrer">Harbin Institute of Technology</a>,
+                    guided by
+                    <a href="https://homepage.hit.edu.cn/dongw" target="_blank" rel="noopener noreferrer"><strong>Prof. Wei Dong</strong></a> and
+                    <a href="https://homepage.hit.edu.cn/gaoyongzhuo" target="_blank" rel="noopener noreferrer"><strong>Yongzhuo Gao</strong></a>;
+                    and the
+                    <a href="https://ciram.fudan.edu.cn/" target="_blank" rel="noopener noreferrer">College of Intelligent Robotics and Advanced Manufacturing</a>,
+                    <a href="https://www.fudan.edu.cn/" target="_blank" rel="noopener noreferrer">Fudan University</a>,
+                    guided by
+                    <a href="https://faet.fudan.edu.cn/e4/6a/c23898a255082/page.htm" target="_blank" rel="noopener noreferrer"><strong>Prof. Yunlong Zhu</strong></a> and
+                    <a href="https://faet.fudan.edu.cn/c8/20/c23904a706592/page.htm" target="_blank" rel="noopener noreferrer"><strong>Chenyao Bai</strong></a>.
                 </p>
                 <p><strong>Recent focus:</strong> FBG-based sensors, medical instruments design, and medical robotics sensing technologies.</p>
-            </div>
+            </section>
 
-            <!-- 新闻部分 - 最新动态和更新 -->
-            <div class="content-section" id="news">
-                <h3>🔥 News</h3>
+            <section class="content-section" id="news">
+                <h2>🔥 News</h2>
                 <ul>
                     <li><em>2025.10</em>: I join the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), Hangzhou, China.</li>
                     <li><em>2025.09</em>: I start my Ph.D. journey at IT3D Lab, SJTU BME.</li>
-                    <li><em>2025.07</em>: I join the <a href="https://mp.weixin.qq.com/s/vjifI7UinbreK6C62m_x2A" target="_blank">7th International Summer School of Medical Robotics</a>.</li>
+                    <li><em>2025.07</em>: I join the <a href="https://mp.weixin.qq.com/s/vjifI7UinbreK6C62m_x2A" target="_blank" rel="noopener noreferrer">7th International Summer School of Medical Robotics</a>.</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- 出版物部分 - 学术论文列表 -->
-            <div class="content-section" id="publications">
-                <h3>📝 Selected Publications</h3>
-                <p>(†: equal contribution, *: corresponding author)</p>
-                <p><strong>Journal</strong></p>
+            <section class="content-section" id="publications">
+                <h2>📝 Selected Publications</h2>
+                <p class="section-note">(†: equal contribution, *: corresponding author)</p>
+                <p class="subheading">Journal</p>
+
+                <div class="pub-list">
+                    <article class="pub-item">
+                        <div class="pub-title">A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery</div>
+                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Tianyu Yang†, Yuyang Lou, Dong Luo, Bin Yang, Huanhuan Liu, Jianwei Wu*, Yuming Dong*</div>
+                        <div class="pub-venue"><em>IEEE Transactions on Instrumentation and Measurement</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 5.9</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/11017448" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope</div>
+                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Sen Ma, Tenglong Zhou, Yuyang Lou, Xuanwei Xiong, Keyu Wei, Dong Luo, Jianwei Wu, Huanhuan Liu, Ran Tao*, Tianyu Yang*, Yuming Dong</div>
+                        <div class="pub-venue"><em>Sensors</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q2</span>
+                            <span class="tag">IF 3.5</span>
+                            <a class="tag" href="https://www.mdpi.com/1424-8220/25/9/2807?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">Multifunctional Magnetic Catheter Robot With Triaxial Force Sensing Capability for Minimally Invasive Surgery</div>
+                        <div class="pub-authors">Shixiong Fu, <strong>Shiyuan Dong</strong>, Haolan Shen, Zhiqiang Chen, Guoyao Ma, Mingxue Cai, Chenyang Huang, Qianbi Peng, Chenyao Bai, Yuming Dong, Huanhuan Liu, Tianyu Yang*, Tiantian Xu*</div>
+                        <div class="pub-venue"><em>Research</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 10.9</span>
+                            <a class="tag" href="https://spj.science.org/doi/full/10.34133/research.0681" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag" href="https://mp.weixin.qq.com/s/GfYlWOr2UlYIG2ggoJbwfw" target="_blank" rel="noopener noreferrer">公众号简介</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter</div>
+                        <div class="pub-authors">Xingyu Zhang, <strong>Shiyuan Dong</strong>, Zhiyuan Chen, Ronghui Xu, Huanhuan Liu, Tianyu Yang, Zengle Ren*, Yuming Dong*</div>
+                        <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 4.5</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10918605/" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</div>
+                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Xingyu Zhang, Yuyang Lou, Dong Luo, Jianwei Wu*, Ran Tao*, Huanhuan Liu*, Tianyu Yang, Yuming Dong</div>
+                        <div class="pub-venue"><em>Optics Express</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q2</span>
+                            <span class="tag">IF 3.3</span>
+                            <a class="tag" href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-33-4-6581&html=true" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</div>
+                        <div class="pub-authors">Yuyang Lou†, <strong>Shiyuan Dong†</strong>, Tianyu Yang*, Xingyu Wan, Liang Zhang, Dong Luo, Jianwei Wu*, Huanhuan Liu, Yuming Dong</div>
+                        <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 4.5</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10747836" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</div>
+                        <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Rongliang Chen, Zhengyong Zhou, Zengle Ren, Huanhuan Liu, Yuming Dong*, Tianyu Yang*</div>
+                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 4.8</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10664009" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</div>
+                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Zihan Liu, Yuyang Lou, Dong Luo, Jianwei Wu, Bin Yang, Huanhuan Liu, Tianyu Yang*, Yuming Dong*</div>
+                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 4.8</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10535215/" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-title">Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling</div>
+                        <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Liang Zhang, Huanhuan Liu, Zhengyong Zhou, Yuming Dong*, Tianyu Yang*</div>
+                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
+                        <div class="pub-tags">
+                            <span class="tag">JCR Q1</span>
+                            <span class="tag">IF 4.8</span>
+                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10494530" target="_blank" rel="noopener noreferrer">Paper</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section" id="honors-and-awards">
+                <h2>🏆 Honors and Awards</h2>
                 <ul>
-                    <li><strong>A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery</strong><br>
-                        Shiyuan Dong†, Tianyu Yang†, Yuyang Lou, Dong Luo, Bin Yang, Huanhuan Liu, Jianwei Wu*, Yuming Dong*<br>
-                        <em>IEEE Transactions on Instrumentation and Measurement</em>, 2025. (JCR Q1, IF: 5.9)</li>
-                    <li><strong>A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope</strong><br>
-                        Shiyuan Dong, Sen Ma, Tenglong Zhou, Yuyang Lou, Xuanwei Xiong, Keyu Wei, Dong Luo, Jianwei Wu, Huanhuan Liu, Ran Tao*, Tianyu Yang*, Yuming Dong<br>
-                        <em>Sensors</em>, 2025. (JCR Q2, IF: 3.5)</li>
-                    <li><strong>Multifunctional Magnetic Catheter Robot With Triaxial Force Sensing Capability for Minimally Invasive Surgery</strong><br>
-                        Shixiong Fu, Shiyuan Dong, Haolan Shen, Zhiqiang Chen, Guoyao Ma, Mingxue Cai, Chenyang Huang, Qianbi Peng, Chenyao Bai, Yuming Dong, Huanhuan Liu, Tianyu Yang*, Tiantian Xu*<br>
-                        <em>Research</em>, 2025. (JCR Q1, IF: 10.9) <a href="https://mp.weixin.qq.com/s/GfYlWOr2UlYIG2ggoJbwfw">(公众号简介)</a></li>
-                    <li><strong>Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter</strong><br>
-                        Xingyu Zhang, Shiyuan Dong, Zhiyuan Chen, Ronghui Xu, Huanhuan Liu, Tianyu Yang, Zengle Ren*, Yuming Dong*<br>
-                        <em>IEEE Sensors Journal</em>, 2025. (JCR Q1, IF: 4.5)</li>
-                    <li><strong>Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</strong><br>
-                        Shiyuan Dong, Xingyu Zhang, Yuyang Lou, Dong Luo, Jianwei Wu*, Ran Tao*, Huanhuan Liu*, Tianyu Yang, Yuming Dong<br>
-                        <em>Optics Express</em>, 2025. (JCR Q2, IF: 3.3)</li>
-                    <li><strong>FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</strong><br>
-                        Yuyang Lou†, Shiyuan Dong†, Tianyu Yang*, Xingyu Wan, Liang Zhang, Dong Luo, Jianwei Wu*, Huanhuan Liu, Yuming Dong<br>
-                        <em>IEEE Sensors Journal</em>, 2025. (JCR Q1, IF: 4.5)</li>
-                    <li><strong>A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</strong><br>
-                        Zihan Liu, Shiyuan Dong, Rongliang Chen, Zhengyong Zhou, Zengle Ren, Huanhuan Liu, Yuming Dong*, Tianyu Yang*<br>
-                        <em>Journal of Lightwave Technology</em>, 2024. (JCR Q1, IF: 4.8)</li>
-                    <li><strong>A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</strong><br>
-                        Shiyuan Dong, Zihan Liu, Yuyang Lou, Dong Luo, Jianwei Wu, Bin Yang, Huanhuan Liu, Tianyu Yang*, Yuming Dong*<br>
-                        <em>Journal of Lightwave Technology</em>, 2024. (JCR Q1, IF: 4.8)</li>
-                    <li><strong>Exhaustive design and statistical analysis of hc-arfs based on geometric modeling</strong><br>
-                        Zihan Liu, Shiyuan Dong, Liang Zhang, Huanhua Liu, Zhengyong Zhou, Yuming Dong*, Tianyu Yang*<br>
-                        <em>Journal of Lightwave Technology</em>, 2024. (JCR Q1, IF: 4.8)</li>
+                    <li>
+                        Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2025.04
+                        <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>
+                        (全国光学与光学工程博士生学术联赛优秀海报奖，连续两年！)
+                    </li>
+                    <li>
+                        Outstanding Graduate Student Award of Shenzhen Institute of Advanced Integration Technology – The Chinese University of Hong Kong, 2025.02<br>
+                        (2024年度集成所所长创新奖-优秀研究生奖)
+                    </li>
+                    <li>
+                        Third Prize in Research Paper Presentation of Fudan University, 2024.11
+                        <a href="https://mp.weixin.qq.com/s/wp3-6a9pzferE6QDgnR1wA" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>
+                        (2024年复旦大学博士生学术论坛三等奖)
+                    </li>
+                    <li>
+                        Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2024.11<br>
+                        (第七届重庆市大学生物理竞赛三等奖，连续两年！)
+                    </li>
+                    <li>
+                        Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2024.04<br>
+                        (全国光学与光学工程博士生学术联赛优秀海报奖)
+                    </li>
+                    <li>
+                        Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2023.11<br>
+                        (第六届重庆市大学生物理竞赛三等奖)
+                    </li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- 荣誉和奖项部分 - 学术成就列表 -->
-            <div class="content-section" id="honors-and-awards">
-                <h3>🏆 Honors and Awards</h3>
-                <ul>
-                    <li>Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2025.04 <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ">(公众号报道)</a><br>
-                        (全国光学与光学工程博士生学术联赛优秀海报奖，连续两年！)</li>
-                    <li>Outstanding Graduate Student Award of Shenzhen Institute of Advanced Integration Technology – The Chinese University of Hong Kong, 2025.02<br>
-                        (2024年度集成所所长创新奖-优秀研究生奖)</li>
-                    <li>Third Prize in Research Paper Presentation of Fudan University, 2024.11 <a href="https://mp.weixin.qq.com/s/wp3-6a9pzferE6QDgnR1wA">(公众号报道)</a><br>
-                        (2024年复旦大学博士生学术论坛三等奖)</li>
-                    <li>Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2024.11<br>
-                        (第七届重庆市大学生物理竞赛三等奖，连续两年！)</li>
-                    <li>Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2024.04<br>
-                        (全国光学与光学工程博士生学术联赛优秀海报奖)</li>
-                    <li>Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2023.11<br>
-                        (第六届重庆市大学生物理竞赛三等奖)</li>
-                </ul>
-            </div>
-
-            <!-- 选定服务部分 - 期刊评审等服务 -->
-            <div class="content-section" id="selected-service">
-                <h3>🎖 Selected Service</h3>
+            <section class="content-section" id="selected-service">
+                <h2>🎖 Selected Service</h2>
                 <p><strong>Journal Reviewer</strong></p>
                 <ul>
                     <li>IEEE Transactions on Industrial Electronics (JCR Q1, IF: 7.2)</li>
                     <li>IEEE Transactions on Instrumentation and Measurement (JCR Q1, IF: 5.9)</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- 邀请演讲部分 - 学术演讲列表 -->
-            <div class="content-section" id="invited-talks">
-                <h3>💬 Invited Talks</h3>
+            <section class="content-section" id="invited-talks">
+                <h2>💬 Invited Talks</h2>
                 <ul>
-                    <li>Development of a Miniature 3D Contact Force Sensor Based on Fiber Bragg Grating in Minimally Invasive Surgery<br>
-                        The 3rd Academic Symposium on Cross-Disciplinary Integration of Biomedical Photonics (BPC), May 2024.</li>
+                    <li>
+                        Development of a Miniature 3D Contact Force Sensor Based on Fiber Bragg Grating in Minimally Invasive Surgery<br>
+                        The 3rd Academic Symposium on Cross-Disciplinary Integration of Biomedical Photonics (BPC), May 2024.
+                    </li>
                 </ul>
-            </div>
-
-
+            </section>
         </div>
-    </div>
+    </main>
 </body>
 </html>
