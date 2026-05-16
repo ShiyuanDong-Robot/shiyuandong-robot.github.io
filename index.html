@@ -8,21 +8,25 @@
     <style>
         :root {
             --bg: #ffffff;
-            --card-bg: #fcfcfc;
-            --text: #333333;
-            --heading: #222222;
-            --muted: #555555;
-            --subtle: #666666;
-            --border: #e0e0e0;
-            --link: #004080;
-            --link-hover: #002b57;
-            --accent: #f4f7fb;
-            --tag-bg: #eef4fb;
+            --bg-soft: #f7faff;
+            --card-bg: rgba(255, 255, 255, 0.88);
+            --text: #30343a;
+            --heading: #161b22;
+            --muted: #5d6775;
+            --subtle: #667085;
+            --border: #dde6f1;
+            --link: #0b4f8a;
+            --link-hover: #06365f;
+            --accent: #f1f6fc;
+            --accent-strong: #dcecff;
+            --tag-bg: #eef6ff;
             --tag-text: #234a73;
-            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --max-width: 1200px;
+            --shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+            --max-width: 1280px;
             --nav-offset: 90px;
-            --radius: 12px;
+            --radius: 14px;
+            --sidebar-width: 230px;
+            --right-rail-width: 250px;
         }
 
         * {
@@ -38,12 +42,14 @@
         }
 
         body {
-            background-color: var(--bg);
+            background:
+                radial-gradient(circle at top left, rgba(220, 236, 255, 0.85), transparent 320px),
+                linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 360px);
             color: var(--text);
             line-height: 1.7;
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px 20px 20px;
+            padding: 0 24px 28px 24px;
             padding-top: var(--nav-offset);
         }
 
@@ -53,7 +59,8 @@
             top: 0;
             left: 0;
             z-index: 999;
-            background-color: var(--bg);
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
@@ -87,27 +94,29 @@
         }
 
         .main-container {
-            display: flex;
-            gap: 72px;
+            display: grid;
+            grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--right-rail-width);
+            gap: 36px;
             max-width: var(--max-width);
             margin: 0 auto;
+            align-items: start;
         }
 
         .sidebar {
-            width: 240px;
-            flex-shrink: 0;
+            width: var(--sidebar-width);
             position: sticky;
             top: calc(var(--nav-offset) + 10px);
             align-self: flex-start;
         }
 
         .profile-img {
-            width: 200px;
-            height: 240px;
+            width: 190px;
+            height: 228px;
             border-radius: 100px / 120px;
             object-fit: cover;
             margin-bottom: 24px;
             border: 1px solid var(--border);
+            box-shadow: 0 12px 26px rgba(16, 24, 40, 0.10);
             display: block;
             margin-left: 0;
             margin-right: auto;
@@ -184,8 +193,126 @@
         }
 
         .content {
-            flex-grow: 1;
             min-width: 0;
+        }
+
+        .right-rail {
+            width: var(--right-rail-width);
+            position: sticky;
+            top: calc(var(--nav-offset) + 10px);
+            align-self: start;
+        }
+
+        .rail-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .rail-card h2,
+        .rail-card h3 {
+            color: var(--heading);
+            line-height: 1.25;
+        }
+
+        .rail-card h2 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .rail-card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .mood-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background-color: var(--accent);
+            color: var(--tag-text);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .mood-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #2f7d55;
+        }
+
+        .mood-date {
+            color: var(--subtle);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .mood-text {
+            color: var(--text);
+            font-size: 14px;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .mood-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mood-list li {
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--muted);
+        }
+
+        .note-label {
+            display: block;
+            color: var(--heading);
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .mini-stat {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background-color: #ffffff;
+            padding: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .mini-stat strong {
+            display: block;
+            color: var(--heading);
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, #f5f9ff, #ffffff);
+        }
+
+        .quote-card p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--muted);
         }
 
         .content-section {
@@ -321,6 +448,32 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E");
         }
 
+
+        @media (max-width: 1150px) {
+            :root {
+                --sidebar-width: 220px;
+                --right-rail-width: 100%;
+            }
+
+            .main-container {
+                grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+                gap: 34px;
+            }
+
+            .right-rail {
+                grid-column: 2;
+                width: 100%;
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .rail-card {
+                margin-bottom: 0;
+            }
+        }
+
         @media (max-width: 900px) {
             body {
                 padding-top: 120px;
@@ -331,7 +484,7 @@
             }
 
             .main-container {
-                gap: 40px;
+                gap: 30px;
             }
         }
 
@@ -360,7 +513,7 @@
             }
 
             .main-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 32px;
             }
 
@@ -390,6 +543,20 @@
                 scroll-margin-top: 24px;
             }
 
+            .right-rail {
+                grid-column: 1;
+                display: block;
+                width: 100%;
+            }
+
+            .rail-card {
+                margin-bottom: 16px;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+
             .pub-item {
                 padding: 16px;
             }
@@ -410,6 +577,7 @@
             <a href="#honors-and-awards">Honors and Awards</a>
             <a href="#selected-service">Selected Service</a>
             <a href="#invited-talks">Invited Talks</a>
+            <a href="#personal-notes">Personal Notes</a>
         </nav>
     </header>
 
@@ -478,7 +646,7 @@
             <section class="content-section" id="news">
                 <h2>🔥 News</h2>
                 <ul>
-                    <li><em>2026.03</em>: 🔥My first Ph.D. paper accepted to <strong>Smartbot</strong>! Thanks the stunning <strong>Lingyu</strong>!</li>
+                    <li><em>2026.03</em>: 🔥 My first Ph.D. paper was accepted by <strong>SmartBot</strong>. Thanks to <strong>Lingyu</strong> for the excellent collaboration!</li>
                     <li><em>2025.10</em>: I join the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), Hangzhou, China.</li>
                     <li><em>2025.09</em>: I start my Ph.D. journey at IT3D Lab, SJTU BME.</li>
                     <li><em>2025.07</em>: I join the <a href="https://mp.weixin.qq.com/s/vjifI7UinbreK6C62m_x2A" target="_blank" rel="noopener noreferrer">7th International Summer School of Medical Robotics</a>.</li>
@@ -494,9 +662,9 @@
  <article class="pub-item">
                         <div class="pub-title">Fiber Bragg Grating Force Sensors for Minimally Invasive Surgery: State of the Art, Challenges, and Opportunities</div>
                         <div class="pub-authors"><strong>Shiyuan Dong†</strong>, Tianqi Huang†, Lingyu Chen, Shucong Yin, Qing Chang, Dingpei Han, Yangxi Li, Boyu Zhang, Hongen Liao, Fang Chen*</div>
-                        <div class="pub-venue"><em>Smartbot</em>, 2026</div>
+                        <div class="pub-venue"><em>SmartBot</em>, 2026</div>
                         <div class="pub-tags">
-                            <a class="tag" href="https://onlinelibrary.wiley.com/doi/10.1002/smb2.70040" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag" href="https://onlinelibrary.wiley.com/journal/29981891" target="_blank" rel="noopener noreferrer">Paper</a>
                             <a class="tag" href="https://mp.weixin.qq.com/s/HL0vxFEKTawqfqh5J8yIcw" target="_blank" rel="noopener noreferrer">公众号简介</a>
                         </div>
                     </article>
@@ -519,7 +687,7 @@
                         <div class="pub-tags">
                             <span class="tag">JCR Q2</span>
                             <span class="tag">IF 3.5</span>
-                            <a class="tag" href="https://www.mdpi.com/1424-8220/25/9/2807?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag" href="https://www.mdpi.com/1424-8220/25/9/2807" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
 
@@ -621,7 +789,7 @@
                         (2024年复旦大学博士生学术论坛三等奖)
                     </li>
                     <li>
-                        Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2024.11<br>
+                        Third Prize in the Paper Category of Chongqing Physics Innovation Competition, 2024.11<br>
                         (第七届重庆市大学生物理竞赛三等奖，连续两年！)
                     </li>
                     <li>
@@ -629,7 +797,7 @@
                         (全国光学与光学工程博士生学术联赛优秀海报奖)
                     </li>
                     <li>
-                        Second Prize in the Paper Category of Chongqing Physics Innovation Competition, 2023.11<br>
+                        Third Prize in the Paper Category of Chongqing Physics Innovation Competition, 2023.11<br>
                         (第六届重庆市大学生物理竞赛三等奖)
                     </li>
                 </ul>
@@ -656,6 +824,34 @@
                 </ul>
             </section>
         </div>
+
+        <aside class="right-rail" id="personal-notes" aria-label="Personal notes">
+            <section class="rail-card mood-card">
+                <h2>🌱 Currently</h2>
+                <div class="mood-status"><span class="mood-dot" aria-hidden="true"></span>Focused and steady</div>
+                <p class="mood-date">Updated: 2026.05</p>
+                <p class="mood-text">Designing compact sensing structures, revising manuscripts, and trying to keep experiments reproducible.</p>
+                <ul class="mood-list">
+                    <li><span class="note-label">Recent mood</span>Calm, busy, and cautiously optimistic.</li>
+                    <li><span class="note-label">Self note</span>Build useful sensors; explain results clearly; verify twice before claiming once.</li>
+                </ul>
+            </section>
+
+            <section class="rail-card">
+                <h3>Research Keywords</h3>
+                <div class="mini-grid">
+                    <div class="mini-stat"><strong>FBG</strong>Force sensing</div>
+                    <div class="mini-stat"><strong>MIS</strong>Medical robotics</div>
+                    <div class="mini-stat"><strong>3D</strong>Tactile sensing</div>
+                    <div class="mini-stat"><strong>Design</strong>Miniature instruments</div>
+                </div>
+            </section>
+
+            <section class="rail-card quote-card">
+                <h3>Personal Note</h3>
+                <p>Small, reliable measurements can make surgical robots safer and more perceptive.</p>
+            </section>
+        </aside>
     </main>
 </body>
 </html>
