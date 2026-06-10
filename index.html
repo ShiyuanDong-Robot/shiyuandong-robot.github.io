@@ -1,835 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiyuan Dong's Homepage</title>
-    <meta name="description" content="Shiyuan Dong's academic homepage. Research interests include FBG-based sensors, tactile sensing, and medical robotics.">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --bg-soft: #f7faff;
-            --card-bg: rgba(255, 255, 255, 0.88);
-            --text: #30343a;
-            --heading: #161b22;
-            --muted: #5d6775;
-            --subtle: #667085;
-            --border: #dde6f1;
-            --link: #0b4f8a;
-            --link-hover: #06365f;
-            --accent: #f1f6fc;
-            --accent-strong: #dcecff;
-            --tag-bg: #eef6ff;
-            --tag-text: #234a73;
-            --shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
-            --max-width: 1280px;
-            --nav-offset: 90px;
-            --radius: 14px;
-            --sidebar-width: 230px;
-            --right-rail-width: 250px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--nav-offset);
-        }
-
-        body {
-            background:
-                radial-gradient(circle at top left, rgba(220, 236, 255, 0.85), transparent 320px),
-                linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 360px);
-            color: var(--text);
-            line-height: 1.7;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px 28px 24px;
-            padding-top: var(--nav-offset);
-        }
-
-        .nav-container {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            background-color: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-
-        .nav-bar {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px 22px;
-        }
-
-        .nav-bar a {
-            color: var(--subtle);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .nav-bar a.homepage-link {
-            color: var(--text);
-            font-weight: 600;
-            margin-right: 10px;
-        }
-
-        .nav-bar a:hover {
-            color: #000000;
-        }
-
-        .main-container {
-            display: grid;
-            grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--right-rail-width);
-            gap: 36px;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            align-items: start;
-        }
-
-        .sidebar {
-            width: var(--sidebar-width);
-            position: sticky;
-            top: calc(var(--nav-offset) + 10px);
-            align-self: flex-start;
-        }
-
-        .profile-img {
-            width: 190px;
-            height: 228px;
-            border-radius: 100px / 120px;
-            object-fit: cover;
-            margin-bottom: 24px;
-            border: 1px solid var(--border);
-            box-shadow: 0 12px 26px rgba(16, 24, 40, 0.10);
-            display: block;
-            margin-left: 0;
-            margin-right: auto;
-        }
-
-        .sidebar h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--heading);
-            margin-bottom: 14px;
-            line-height: 1.2;
-        }
-
-        .sidebar .bio {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .sidebar .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 14px;
-            font-size: 15px;
-            color: #444444;
-            justify-content: flex-start;
-        }
-
-        .sidebar .info-item .icon {
-            margin-right: 12px;
-            color: #444444;
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-        }
-
-        .sidebar .info-item a {
-            color: #444444;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .sidebar .info-item a:hover {
-            color: var(--link);
-            text-decoration: underline;
-        }
-
-        .quick-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 14px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background-color: var(--card-bg);
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .link-button:hover {
-            color: var(--link);
-            border-color: #c7d6e8;
-            background-color: var(--accent);
-        }
-
-        .content {
-            min-width: 0;
-        }
-
-        .right-rail {
-            width: var(--right-rail-width);
-            position: sticky;
-            top: calc(var(--nav-offset) + 10px);
-            align-self: start;
-        }
-
-        .rail-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            padding: 18px;
-            margin-bottom: 16px;
-        }
-
-        .rail-card h2,
-        .rail-card h3 {
-            color: var(--heading);
-            line-height: 1.25;
-        }
-
-        .rail-card h2 {
-            font-size: 17px;
-            margin-bottom: 12px;
-        }
-
-        .rail-card h3 {
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-
-        .mood-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background-color: var(--accent);
-            color: var(--tag-text);
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .mood-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #2f7d55;
-        }
-
-        .mood-date {
-            color: var(--subtle);
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .mood-text {
-            color: var(--text);
-            font-size: 14px;
-            line-height: 1.65;
-            margin-bottom: 14px;
-        }
-
-        .mood-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .mood-list li {
-            border-top: 1px solid var(--border);
-            padding-top: 10px;
-            margin-top: 10px;
-            font-size: 13px;
-            line-height: 1.55;
-            color: var(--muted);
-        }
-
-        .note-label {
-            display: block;
-            color: var(--heading);
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-
-        .mini-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .mini-stat {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            background-color: #ffffff;
-            padding: 10px;
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .mini-stat strong {
-            display: block;
-            color: var(--heading);
-            font-size: 16px;
-            margin-bottom: 2px;
-        }
-
-        .quote-card {
-            background: linear-gradient(135deg, #f5f9ff, #ffffff);
-        }
-
-        .quote-card p {
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--muted);
-        }
-
-        .content-section {
-            margin-bottom: 44px;
-            scroll-margin-top: 110px;
-        }
-
-        .content-section h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--heading);
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .content-section p {
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
-
-        .content-section ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .content-section li {
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        .content-section a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        .content-section a:hover {
-            color: var(--link-hover);
-            text-decoration: underline;
-        }
-
-        .content-section em {
-            color: #888888;
-            font-style: italic;
-        }
-
-        .section-note {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .subheading {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--heading);
-            margin-bottom: 14px;
-        }
-
-        .pub-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .pub-item {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background-color: var(--card-bg);
-            padding: 18px 20px;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-        }
-
-        .pub-item:hover {
-            border-color: #d0dbe8;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-            transform: translateY(-1px);
-        }
-
-        .pub-title {
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.45;
-            color: var(--heading);
-            margin-bottom: 8px;
-        }
-
-        .pub-authors {
-            font-size: 14px;
-            color: var(--text);
-            margin-bottom: 6px;
-        }
-
-        .pub-venue {
-            font-size: 14px;
-            color: var(--muted);
-            margin-bottom: 10px;
-        }
-
-        .pub-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .icon {
-            display: inline-block;
-            background-size: contain;
-            background-repeat: no-repeat;
-            vertical-align: middle;
-        }
-
-        .icon-map {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
-        }
-
-        .icon-email {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
-        }
-
-        .icon-scholar {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23444'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E");
-        }
-
-
-        @media (max-width: 1150px) {
-            :root {
-                --sidebar-width: 220px;
-                --right-rail-width: 100%;
-            }
-
-            .main-container {
-                grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-                gap: 34px;
-            }
-
-            .right-rail {
-                grid-column: 2;
-                width: 100%;
-                position: static;
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 16px;
-            }
-
-            .rail-card {
-                margin-bottom: 0;
-            }
-        }
-
-        @media (max-width: 900px) {
-            body {
-                padding-top: 120px;
-            }
-
-            :root {
-                --nav-offset: 120px;
-            }
-
-            .main-container {
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --nav-offset: 20px;
-            }
-
-            body {
-                padding-top: 20px;
-            }
-
-            .nav-container {
-                position: static;
-                width: 100%;
-            }
-
-            .nav-bar {
-                padding: 14px 10px;
-                gap: 8px 14px;
-                justify-content: center;
-            }
-
-            .nav-bar a {
-                font-size: 14px;
-            }
-
-            .main-container {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .sidebar {
-                width: 100%;
-                margin-bottom: 0;
-                position: static;
-                top: auto;
-                text-align: center;
-            }
-
-            .profile-img {
-                margin: 0 auto 24px;
-            }
-
-            .sidebar .info-item,
-            .quick-links {
-                justify-content: center;
-            }
-
-            .sidebar h1,
-            .sidebar .bio {
-                text-align: center;
-            }
-
-            .content-section {
-                scroll-margin-top: 24px;
-            }
-
-            .right-rail {
-                grid-column: 1;
-                display: block;
-                width: 100%;
-            }
-
-            .rail-card {
-                margin-bottom: 16px;
-            }
-
-            .mini-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pub-item {
-                padding: 16px;
-            }
-
-            .pub-title {
-                font-size: 16px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="nav-container">
-        <nav class="nav-bar" aria-label="Primary navigation">
-            <a href="#homepage" class="homepage-link">Homepage</a>
-            <a href="#about-me">About Me</a>
-            <a href="#news">News</a>
-            <a href="#publications">Publications</a>
-            <a href="#honors-and-awards">Honors and Awards</a>
-            <a href="#selected-service">Selected Service</a>
-            <a href="#invited-talks">Invited Talks</a>
-            <a href="#personal-notes">Personal Notes</a>
-        </nav>
-    </header>
-
-    <main class="main-container" id="homepage">
-        <aside class="sidebar">
-            <img src="images/profile.png" alt="Portrait of Shiyuan Dong" class="profile-img">
-            <h1>Shiyuan Dong</h1>
-            <p class="bio">FBG-based sensors, tactile sensors for medical robotics.</p>
-            <p class="bio">Ph.D. student @ SJTU IMR</p>
-
-            <div class="info-item">
-                <span class="icon icon-map" aria-hidden="true"></span>
-                <span>IMR</span>
-            </div>
-
-            <div class="info-item">
-                <span class="icon icon-email" aria-hidden="true"></span>
-                <a href="mailto:dongshiyuan@sjtu.edu.cn">dongshiyuan@sjtu.edu.cn</a>
-            </div>
-
-            <div class="info-item">
-                <span class="icon icon-scholar" aria-hidden="true"></span>
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            </div>
-
-            <div class="quick-links">
-                <a class="link-button" href="mailto:dongshiyuan@sjtu.edu.cn">Email</a>
-                <a class="link-button" href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Scholar</a>
-            </div>
-        </aside>
-
-        <div class="content">
-            <section class="content-section" id="about-me">
-                <h2>About Me</h2>
-                <p>
-                    I am currently a Ph.D. student at the
-                    <a href="https://imr.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Institute of Medical Robotics (IMR)</a>,
-                    <a href="https://www.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Shanghai Jiao Tong University</a>,
-                    supervised by
-                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/964" target="_blank" rel="noopener noreferrer"><strong>Prof. Fang Chen</strong></a> and
-                    <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/966" target="_blank" rel="noopener noreferrer"><strong>Prof. Hongen Liao</strong></a>.
-                    Previously, I was a visiting student with the Research Centre for
-                    <a href="https://coet.siat.ac.cn/" target="_blank" rel="noopener noreferrer">Opto-Electronic Engineering and Technology</a>,
-                    <a href="https://www.siat.ac.cn/" target="_blank" rel="noopener noreferrer">Shenzhen Institute of Advanced Technology</a>,
-                    <a href="https://www.cas.cn/" target="_blank" rel="noopener noreferrer">Chinese Academy of Sciences</a>,
-                    guided by
-                    <a href="https://people.ucas.edu.cn/~xutiantian" target="_blank" rel="noopener noreferrer"><strong>Prof. Tiantian Xu</strong></a>,
-                    <a href="https://people.ucas.edu.cn/~zhengkunyi" target="_blank" rel="noopener noreferrer"><strong>Zhengkun Yi</strong></a>, and
-                    <a href="https://people.ucas.edu.cn/~0047027" target="_blank" rel="noopener noreferrer"><strong>Yuming Dong</strong></a>;
-                    the
-                    <a href="https://robot.hit.edu.cn/" target="_blank" rel="noopener noreferrer">State Key Laboratory of Robotics and System</a>,
-                    <a href="https://www.hit.edu.cn/" target="_blank" rel="noopener noreferrer">Harbin Institute of Technology</a>,
-                    guided by
-                    <a href="https://homepage.hit.edu.cn/dongw" target="_blank" rel="noopener noreferrer"><strong>Prof. Wei Dong</strong></a> and
-                    <a href="https://homepage.hit.edu.cn/gaoyongzhuo" target="_blank" rel="noopener noreferrer"><strong>Yongzhuo Gao</strong></a>;
-                    and the
-                    <a href="https://ciram.fudan.edu.cn/" target="_blank" rel="noopener noreferrer">College of Intelligent Robotics and Advanced Manufacturing</a>,
-                    <a href="https://www.fudan.edu.cn/" target="_blank" rel="noopener noreferrer">Fudan University</a>,
-                    guided by
-                    <a href="https://faet.fudan.edu.cn/e4/6a/c23898a255082/page.htm" target="_blank" rel="noopener noreferrer"><strong>Prof. Yunlong Zhu</strong></a> and
-                    <a href="https://faet.fudan.edu.cn/c8/20/c23904a706592/page.htm" target="_blank" rel="noopener noreferrer"><strong>Chenyao Bai</strong></a>.
-                </p>
-                <p><strong>Recent focus:</strong> FBG-based sensors, medical instruments design, and medical robotics sensing technologies.</p>
-            </section>
-
-            <section class="content-section" id="news">
-                <h2>🔥 News</h2>
-                <ul>
-                    <li><em>2026.05</em>: New paper accepted to <strong>Advanced Intelligent Systems</strong>! Congratulations to <strong>Shucong</strong>!</li>
-                    <li><em>2026.05</em>: I join the the 5th China Haptic Technology and Application Conference, Beijing, China.</li>
-                    <li><em>2026.03</em>: 🔥 My first Ph.D. paper was accepted by <strong>SmartBot</strong>. Thanks to <strong>Lingyu</strong>!</li>
-                    <li><em>2025.10</em>: I join the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), Hangzhou, China.</li>
-                    <li><em>2025.09</em>: I start my Ph.D. journey at IT3D Lab, SJTU BME.</li>
-                    <li><em>2025.07</em>: I join the <a href="https://mp.weixin.qq.com/s/vjifI7UinbreK6C62m_x2A" target="_blank" rel="noopener noreferrer">7th International Summer School of Medical Robotics</a>.</li>
-                </ul>
-            </section>
-
-            <section class="content-section" id="publications">
-                <h2>📝 Selected Publications</h2>
-                <p class="section-note">(†: equal contribution, *: corresponding author)</p>
-                
-
-                <div class="pub-list">
-   <article class="pub-item">
-                        <div class="pub-title">Bronchoscopy Robot with Enhanced Flexibility and Stability via Multi-Segment Variable Stiffness Catheter</div>
-                        <div class="pub-authors">Shucong Yin, Bin Huang, <strong>Shiyuan Dong</strong>, Junhao Wang, Liangsheng Zhao, Yang Yang, Bingkun Bao, Hongen Liao, Fang Chen, Tianqi Huang, Boyu*</div>
-                        <div class="pub-venue"><em>Advanced Intelligent Systems</em>, 2026</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
-                            <span class="tag">IF 7.7</span>
-                            <a class="tag" href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aisy.70451" target="_blank" rel="noopener noreferrer">Paper</a>
-                        </div>
-                    </article>
-                    
-                    
-                    <article class="pub-item">
-                        <div class="pub-title">Fiber Bragg Grating Force Sensors for Minimally Invasive Surgery: State of the Art, Challenges, and Opportunities</div>
-                        <div class="pub-authors"><strong>Shiyuan Dong†</strong>, Tianqi Huang†, Lingyu Chen, Shucong Yin, Qing Chang, Dingpei Han, Yangxi Li, Boyu Zhang, Hongen Liao, Fang Chen*</div>
-                        <div class="pub-venue"><em>SmartBot</em>, 2026</div>
-                        <div class="pub-tags">
-                            <a class="tag" href="https://onlinelibrary.wiley.com/journal/29981891" target="_blank" rel="noopener noreferrer">Paper</a>
-                            <a class="tag" href="https://mp.weixin.qq.com/s/HL0vxFEKTawqfqh5J8yIcw" target="_blank" rel="noopener noreferrer">公众号简介</a>
-                        </div>
-                    </article>
-                    
-                    <article class="pub-item">
-                        <div class="pub-title">A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery</div>
-                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Tianyu Yang†, Yuyang Lou, Dong Luo, Bin Yang, Huanhuan Liu, Jianwei Wu*, Yuming Dong*</div>
-                        <div class="pub-venue"><em>IEEE Transactions on Instrumentation and Measurement</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
-                            <span class="tag">IF 5.9</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/11017448" target="_blank" rel="noopener noreferrer">Paper</a>
-                        </div>
-                    </article>
-
-                    <article class="pub-item">
-                        <div class="pub-title">A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope</div>
-                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Sen Ma, Tenglong Zhou, Yuyang Lou, Xuanwei Xiong, Keyu Wei, Dong Luo, Jianwei Wu, Huanhuan Liu, Ran Tao*, Tianyu Yang*, Yuming Dong</div>
-                        <div class="pub-venue"><em>Sensors</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q2</span>
-                            <span class="tag">IF 3.5</span>
-                            <a class="tag" href="https://www.mdpi.com/1424-8220/25/9/2807" target="_blank" rel="noopener noreferrer">Paper</a>
-                        </div>
-                    </article>
-
-                    <article class="pub-item">
-                        <div class="pub-title">Multifunctional Magnetic Catheter Robot With Triaxial Force Sensing Capability for Minimally Invasive Surgery</div>
-                        <div class="pub-authors">Shixiong Fu, <strong>Shiyuan Dong</strong>, Haolan Shen, Zhiqiang Chen, Guoyao Ma, Mingxue Cai, Chenyang Huang, Qianbi Peng, Chenyao Bai, Yuming Dong, Huanhuan Liu, Tianyu Yang*, Tiantian Xu*</div>
-                        <div class="pub-venue"><em>Research</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
-                            <span class="tag">IF 10.9</span>
-                            <a class="tag" href="https://spj.science.org/doi/full/10.34133/research.0681" target="_blank" rel="noopener noreferrer">Paper</a>
-                            <a class="tag" href="https://mp.weixin.qq.com/s/GfYlWOr2UlYIG2ggoJbwfw" target="_blank" rel="noopener noreferrer">公众号简介</a>
-                        </div>
-                    </article>
-
-                    <article class="pub-item">
-                        <div class="pub-title">Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter</div>
-                        <div class="pub-authors">Xingyu Zhang, <strong>Shiyuan Dong</strong>, Zhiyuan Chen, Ronghui Xu, Huanhuan Liu, Tianyu Yang, Zengle Ren*, Yuming Dong*</div>
-                        <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
-                            <span class="tag">IF 4.5</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10918605/" target="_blank" rel="noopener noreferrer">Paper</a>
-                        </div>
-                    </article>
-
-                    <article class="pub-item">
-                        <div class="pub-title">Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</div>
-                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Xingyu Zhang, Yuyang Lou, Dong Luo, Jianwei Wu*, Ran Tao*, Huanhuan Liu*, Tianyu Yang, Yuming Dong</div>
-                        <div class="pub-venue"><em>Optics Express</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q2</span>
+<h3 class="paper-title">Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</h3>
+                        <p class="authors"><strong>Shiyuan Dong</strong>, Xingyu Zhang, Yuyang Lou, Dong Luo, Jianwei Wu*, Ran Tao*, Huanhuan Liu*, Tianyu Yang, Yuming Dong</p>
+                        <p class="venue"><em>Optics Express</em>, 2025</p>
+                        <div class="tag-row">
+                            <span class="tag q2">JCR Q2</span>
                             <span class="tag">IF 3.3</span>
-                            <a class="tag" href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-33-4-6581&html=true" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag paper-link" href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-33-4-6581&amp;html=true" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
 
-                    <article class="pub-item">
-                        <div class="pub-title">FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</div>
-                        <div class="pub-authors">Yuyang Lou†, <strong>Shiyuan Dong†</strong>, Tianyu Yang*, Xingyu Wan, Liang Zhang, Dong Luo, Jianwei Wu*, Huanhuan Liu, Yuming Dong</div>
-                        <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
+                    <article class="paper">
+                        <h3 class="paper-title">FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</h3>
+                        <p class="authors">Yuyang Lou&dagger;, <strong>Shiyuan Dong&dagger;</strong>, Tianyu Yang*, Xingyu Wan, Liang Zhang, Dong Luo, Jianwei Wu*, Huanhuan Liu, Yuming Dong</p>
+                        <p class="venue"><em>IEEE Sensors Journal</em>, 2025</p>
+                        <div class="tag-row">
+                            <span class="tag q1">JCR Q1</span>
                             <span class="tag">IF 4.5</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10747836" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag paper-link" href="https://ieeexplore.ieee.org/abstract/document/10747836" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
 
-                    <article class="pub-item">
-                        <div class="pub-title">A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</div>
-                        <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Rongliang Chen, Zhengyong Zhou, Zengle Ren, Huanhuan Liu, Yuming Dong*, Tianyu Yang*</div>
-                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
+                    <article class="paper">
+                        <h3 class="paper-title">A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</h3>
+                        <p class="authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Rongliang Chen, Zhengyong Zhou, Zengle Ren, Huanhuan Liu, Yuming Dong*, Tianyu Yang*</p>
+                        <p class="venue"><em>Journal of Lightwave Technology</em>, 2024</p>
+                        <div class="tag-row">
+                            <span class="tag q1">JCR Q1</span>
                             <span class="tag">IF 4.8</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10664009" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag paper-link" href="https://ieeexplore.ieee.org/abstract/document/10664009" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
 
-                    <article class="pub-item">
-                        <div class="pub-title">A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</div>
-                        <div class="pub-authors"><strong>Shiyuan Dong</strong>, Zihan Liu, Yuyang Lou, Dong Luo, Jianwei Wu, Bin Yang, Huanhuan Liu, Tianyu Yang*, Yuming Dong*</div>
-                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
+                    <article class="paper">
+                        <h3 class="paper-title">A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</h3>
+                        <p class="authors"><strong>Shiyuan Dong</strong>, Zihan Liu, Yuyang Lou, Dong Luo, Jianwei Wu, Bin Yang, Huanhuan Liu, Tianyu Yang*, Yuming Dong*</p>
+                        <p class="venue"><em>Journal of Lightwave Technology</em>, 2024</p>
+                        <div class="tag-row">
+                            <span class="tag q1">JCR Q1</span>
                             <span class="tag">IF 4.8</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10535215/" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag paper-link" href="https://ieeexplore.ieee.org/abstract/document/10535215/" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
 
-                    <article class="pub-item">
-                        <div class="pub-title">Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling</div>
-                        <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Liang Zhang, Huanhuan Liu, Zhengyong Zhou, Yuming Dong*, Tianyu Yang*</div>
-                        <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
-                        <div class="pub-tags">
-                            <span class="tag">JCR Q1</span>
+                    <article class="paper">
+                        <h3 class="paper-title">Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling</h3>
+                        <p class="authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Liang Zhang, Huanhuan Liu, Zhengyong Zhou, Yuming Dong*, Tianyu Yang*</p>
+                        <p class="venue"><em>Journal of Lightwave Technology</em>, 2024</p>
+                        <div class="tag-row">
+                            <span class="tag q1">JCR Q1</span>
                             <span class="tag">IF 4.8</span>
-                            <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10494530" target="_blank" rel="noopener noreferrer">Paper</a>
+                            <a class="tag paper-link" href="https://ieeexplore.ieee.org/abstract/document/10494530" target="_blank" rel="noopener noreferrer">Paper</a>
                         </div>
                     </article>
                 </div>
             </section>
 
-            <section class="content-section" id="honors-and-awards">
-                <h2>🏆 Honors and Awards</h2>
-                <ul>
+            <section class="section" id="honors">
+                <div class="section-header">
+                    <h2>Honors and Awards</h2>
+                    <p class="section-note">Selected recognition</p>
+                </div>
+                <ul class="honor-list">
                     <li>
-                        Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2025.04
-                        <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>
-                        (全国光学与光学工程博士生学术联赛优秀海报奖，连续两年！)
+                        <span class="date">2025.04</span>
+                        <span>Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>全国光学与光学工程博士生学术联赛优秀海报奖，连续两年。</span>
                     </li>
                     <li>
-                        Outstanding Graduate Student Award of Shenzhen Institute of Advanced Integration Technology – The Chinese University of Hong Kong, 2025.02<br>
-                        (2024年度集成所所长创新奖-优秀研究生奖)
+                        <span class="date">2025.02</span>
+                        <span>Outstanding Graduate Student Award of Shenzhen Institute of Advanced Integration Technology - The Chinese University of Hong Kong<br>2024年度集成所所长创新奖-优秀研究生奖。</span>
                     </li>
                     <li>
-                        Third Prize in Research Paper Presentation of Fudan University, 2024.11
-                        <a href="https://mp.weixin.qq.com/s/wp3-6a9pzferE6QDgnR1wA" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>
-                        (2024年复旦大学博士生学术论坛三等奖)
+                        <span class="date">2024.11</span>
+                        <span>Third Prize in Research Paper Presentation of Fudan University <a href="https://mp.weixin.qq.com/s/wp3-6a9pzferE6QDgnR1wA" target="_blank" rel="noopener noreferrer">(公众号报道)</a><br>2024年复旦大学博士生学术论坛三等奖。</span>
                     </li>
                     <li>
-                        Third Prize in the Paper Category of Chongqing Physics Innovation Competition, 2024.11<br>
-                        (第七届重庆市大学生物理竞赛三等奖，连续两年！)
+                        <span class="date">2024.11</span>
+                        <span>Third Prize in the Paper Category of Chongqing Physics Innovation Competition<br>第七届重庆市大学生物理竞赛三等奖，连续两年。</span>
                     </li>
                     <li>
-                        Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2024.04<br>
-                        (全国光学与光学工程博士生学术联赛优秀海报奖)
+                        <span class="date">2024.04</span>
+                        <span>Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering<br>全国光学与光学工程博士生学术联赛优秀海报奖。</span>
                     </li>
                     <li>
-                        Third Prize in the Paper Category of Chongqing Physics Innovation Competition, 2023.11<br>
-                        (第六届重庆市大学生物理竞赛三等奖)
+                        <span class="date">2023.11</span>
+                        <span>Third Prize in the Paper Category of Chongqing Physics Innovation Competition<br>第六届重庆市大学生物理竞赛三等奖。</span>
                     </li>
                 </ul>
             </section>
 
-            <section class="content-section" id="selected-service">
-                <h2>🎖 Selected Service</h2>
-                <p><strong>Reviewer</strong></p>
-                <ul>
-                    <li>IEEE Transactions on Industrial Electronics (JCR Q1, IF: 7.2)</li>
-                    <li>IEEE Transactions on Mechatronics (JCR Q1, IF: 7.3)</li>
-                    <li>IEEE Transactions on Instrumentation and Measurement (JCR Q1, IF: 5.9)</li>
-                    <li>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</li>
-                </ul>
+            <section class="section" id="service">
+                <div class="section-header">
+                    <h2>Selected Service</h2>
+                    <p class="section-note">Reviewer activity</p>
+                </div>
+                <div class="service-box">
+                    <p><strong>Reviewer</strong></p>
+                    <ul>
+                        <li>IEEE Transactions on Industrial Electronics (JCR Q1, IF: 7.2)</li>
+                        <li>IEEE Transactions on Mechatronics (JCR Q1, IF: 7.3)</li>
+                        <li>IEEE Transactions on Instrumentation and Measurement (JCR Q1, IF: 5.9)</li>
+                        <li>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</li>
+                    </ul>
+                </div>
             </section>
 
-            <section class="content-section" id="invited-talks">
-                <h2>💬 Invited Talks</h2>
+            <section class="section" id="talks">
+                <div class="section-header">
+                    <h2>Invited Talks</h2>
+                    <p class="section-note">Selected presentation</p>
+                </div>
                 <ul>
                     <li>
                         Development of a Miniature 3D Contact Force Sensor Based on Fiber Bragg Grating in Minimally Invasive Surgery<br>
@@ -839,33 +117,45 @@
             </section>
         </div>
 
-        <aside class="right-rail" id="personal-notes" aria-label="Personal notes">
-            <section class="rail-card mood-card">
-                <h2>🌱 Currently</h2>
-                <div class="mood-status"><span class="mood-dot" aria-hidden="true"></span>Focused and steady</div>
-                <p class="mood-date">Updated: 2026.06</p>
-                <p class="mood-text">rebuttal😒</p>
-                <ul class="mood-list">
-                    <li><span class="note-label">Recent mood</span>Busy, and cautiously optimistic.</li>
-                    <li><span class="note-label">Shiyuan Mood</span>6.10 😊</li>
-                </ul>
+        <aside class="right-rail" aria-label="Research snapshot">
+            <section class="rail-panel">
+                <h2>Currently</h2>
+                <div class="status">Focused and steady</div>
+                <p><strong>Updated:</strong> 2026.06</p>
+                <p>Working on rebuttal, Ph.D. research, and FBG-based sensing for medical robotics.</p>
             </section>
 
-            <section class="rail-card">
-                <h3>Research Keywords</h3>
-                <div class="mini-grid">
-                    <div class="mini-stat"><strong>FBG</strong>Force sensing</div>
-                    <div class="mini-stat"><strong>MIS</strong>Medical robotics</div>
-                    <div class="mini-stat"><strong>3D</strong>Tactile sensing</div>
-                    <div class="mini-stat"><strong>Design</strong>Miniature instruments</div>
+            <section class="rail-panel">
+                <h3>Snapshot</h3>
+                <div class="stat-grid">
+                    <div class="stat"><strong>11</strong>Selected publications</div>
+                    <div class="stat"><strong>2026</strong>Latest update</div>
+                    <div class="stat"><strong>FBG</strong>Core sensing method</div>
+                    <div class="stat"><strong>MIS</strong>Main application</div>
                 </div>
             </section>
 
-            <section class="rail-card quote-card">
+            <section class="rail-panel">
+                <h3>Keywords</h3>
+                <div class="keyword-list">
+                    <span class="keyword">FBG</span>
+                    <span class="keyword">Force sensing</span>
+                    <span class="keyword">Tactile sensing</span>
+                    <span class="keyword">Medical robotics</span>
+                    <span class="keyword">Flexible instruments</span>
+                    <span class="keyword">Minimally invasive surgery</span>
+                </div>
+            </section>
+
+            <section class="rail-panel">
                 <h3>Personal Note</h3>
                 <p>Small, reliable measurements can make surgical robots safer and more perceptive.</p>
             </section>
         </aside>
     </main>
+
+    <footer class="footer">
+        Last updated: June 2026. Built as a static academic homepage for GitHub Pages.
+    </footer>
 </body>
 </html>
