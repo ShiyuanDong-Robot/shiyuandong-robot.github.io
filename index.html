@@ -429,9 +429,7 @@
             line-height: 1.4;
         }
 
-
-
-        /* Feedback / visitor comments */
+        /* Feedback / visitor form */
         .feedback-card {
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -470,13 +468,114 @@
             color: var(--muted);
             font-size: 13px;
             line-height: 1.6;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
 
-        #cusdis_thread {
+        .feedback-form {
             border-top: 1px solid var(--border);
-            padding-top: 16px;
-            min-height: 180px;
+            padding-top: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            color: var(--heading);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            border: 1px solid #cfdceb;
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: var(--text);
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 10px 12px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-field textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: #8fb9e6;
+            box-shadow: 0 0 0 3px rgba(143, 185, 230, 0.22);
+        }
+
+        .feedback-submit-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .feedback-button {
+            border: 1px solid #0b4f8a;
+            border-radius: 999px;
+            background-color: var(--link);
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 18px;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feedback-button:hover {
+            background-color: var(--link-hover);
+            box-shadow: 0 8px 20px rgba(11, 79, 138, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .feedback-small {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .feedback-success {
+            border: 1px solid #b9dec9;
+            border-radius: 12px;
+            background-color: #f3fbf6;
+            color: #245f3b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            padding: 10px 12px;
+        }
+
+        .honeypot {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .icon {
@@ -902,24 +1001,65 @@
                         <span>Questions</span>
                     </div>
                     <p class="feedback-note">
-                        Comments are moderated before being publicly visible. Please avoid sharing sensitive personal information.
+                        Please leave a short message below. The submission will be sent to my email inbox; it will not be displayed publicly on this page.
                     </p>
 
-                    <!--
-                        Setup:
-                        1. Sign in at https://cusdis.com and create a site/project.
-                        2. Replace YOUR_CUSDIS_APP_ID with the App ID from the Cusdis dashboard.
-                        3. Commit and push this index.html to your GitHub Pages repository.
-                    -->
-                    <div id="cusdis_thread"
-                         data-host="https://cusdis.com"
-                         data-app-id="YOUR_CUSDIS_APP_ID"
-                         data-page-id="homepage-feedback"
-                         data-page-url="https://shiyuandong-robot.github.io/#feedback"
-                         data-page-title="Shiyuan Dong Homepage Feedback"
-                         data-theme="light">
-                    </div>
-                    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+                    <p class="feedback-success" hidden>
+                        Thanks — your feedback has been submitted.
+                    </p>
+
+                    <form class="feedback-form" action="https://formsubmit.co/dongshiyuan@sjtu.edu.cn" method="POST">
+                        <input type="hidden" name="_subject" value="New feedback from Shiyuan Dong homepage">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_url" value="https://shiyuandong-robot.github.io/#feedback">
+                        <input type="hidden" name="_next" value="https://shiyuandong-robot.github.io/?feedback=sent#feedback">
+                        <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="feedback-name">Name</label>
+                                <input id="feedback-name" name="name" type="text" placeholder="Your name or Anonymous">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="feedback-email">Email <span class="feedback-small">(optional)</span></label>
+                                <input id="feedback-email" name="email" type="email" placeholder="For replies only">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="feedback-topic">Topic</label>
+                                <select id="feedback-topic" name="topic" required>
+                                    <option value="" selected disabled>Select a topic</option>
+                                    <option value="Research comments">Research comments</option>
+                                    <option value="Collaboration ideas">Collaboration ideas</option>
+                                    <option value="Website suggestions">Website suggestions</option>
+                                    <option value="Questions">Questions</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="feedback-rating">Overall impression</label>
+                                <select id="feedback-rating" name="overall_impression" required>
+                                    <option value="" selected disabled>Select one</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Needs improvement">Needs improvement</option>
+                                    <option value="Just leaving a note">Just leaving a note</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <label for="feedback-message">Message</label>
+                                <textarea id="feedback-message" name="message" placeholder="Write your comment, suggestion, question, or collaboration idea here." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="feedback-submit-row">
+                            <button class="feedback-button" type="submit">Submit Feedback</button>
+                            <span class="feedback-small">Please avoid sharing sensitive personal information.</span>
+                        </div>
+                    </form>
                 </div>
             </section>
 
@@ -953,5 +1093,15 @@
             </section>
         </aside>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var params = new URLSearchParams(window.location.search);
+            var successMessage = document.querySelector('.feedback-success');
+            if (params.get('feedback') === 'sent' && successMessage) {
+                successMessage.hidden = false;
+            }
+        });
+    </script>
 </body>
 </html>
