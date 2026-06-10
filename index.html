@@ -429,6 +429,56 @@
             line-height: 1.4;
         }
 
+
+
+        /* Feedback / visitor comments */
+        .feedback-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(135deg, rgba(241, 246, 252, 0.98), rgba(255, 255, 255, 0.96));
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .feedback-lead {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .feedback-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .feedback-prompts span {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid #d6e4f2;
+            background-color: #ffffff;
+            color: var(--tag-text);
+            font-size: 13px;
+        }
+
+        .feedback-note {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        #cusdis_thread {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+            min-height: 180px;
+        }
+
         .icon {
             display: inline-block;
             background-size: contain;
@@ -578,6 +628,7 @@
             <a href="#selected-service">Selected Service</a>
             <a href="#invited-talks">Invited Talks</a>
             <a href="#personal-notes">Personal Notes</a>
+            <a href="#feedback">Feedback</a>
         </nav>
     </header>
 
@@ -837,6 +888,41 @@
                     </li>
                 </ul>
             </section>
+
+            <section class="content-section" id="feedback">
+                <h2>💭 Visitor Feedback</h2>
+                <div class="feedback-card">
+                    <p class="feedback-lead">
+                        Thanks for visiting my homepage. Comments, suggestions, collaboration ideas, and questions are welcome.
+                    </p>
+                    <div class="feedback-prompts" aria-label="Suggested feedback topics">
+                        <span>Research comments</span>
+                        <span>Collaboration ideas</span>
+                        <span>Website suggestions</span>
+                        <span>Questions</span>
+                    </div>
+                    <p class="feedback-note">
+                        Comments are moderated before being publicly visible. Please avoid sharing sensitive personal information.
+                    </p>
+
+                    <!--
+                        Setup:
+                        1. Sign in at https://cusdis.com and create a site/project.
+                        2. Replace YOUR_CUSDIS_APP_ID with the App ID from the Cusdis dashboard.
+                        3. Commit and push this index.html to your GitHub Pages repository.
+                    -->
+                    <div id="cusdis_thread"
+                         data-host="https://cusdis.com"
+                         data-app-id="YOUR_CUSDIS_APP_ID"
+                         data-page-id="homepage-feedback"
+                         data-page-url="https://shiyuandong-robot.github.io/#feedback"
+                         data-page-title="Shiyuan Dong Homepage Feedback"
+                         data-theme="light">
+                    </div>
+                    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+                </div>
+            </section>
+
         </div>
 
         <aside class="right-rail" id="personal-notes" aria-label="Personal notes">
