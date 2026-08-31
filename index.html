@@ -177,6 +177,12 @@
             overflow-wrap: anywhere;
         }
 
+        .sidebar .info-item a[href^="mailto:"] {
+            font-size: 13px;
+            letter-spacing: -0.1px;
+            white-space: nowrap;
+        }
+
         .sidebar .info-item a:hover {
             color: var(--link);
             text-decoration: underline;
@@ -580,6 +586,11 @@
             .sidebar h1,
             .sidebar .bio {
                 text-align: center;
+            }
+
+            .sidebar .info-item a[href^="mailto:"] {
+                font-size: 15px;
+                letter-spacing: 0;
             }
 
             .content {
