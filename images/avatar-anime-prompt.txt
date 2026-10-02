@@ -1,0 +1,17 @@
+Asset: avatar-anime.png
+Created: 2026-10-02
+Method: Original generation using the built-in image_gen tool.
+Reference images: None. The character is fictional.
+
+Generation prompt:
+
+Use case: stylized-concept
+Asset type: original square profile avatar for a refined personal academic portfolio website.
+Primary request: draw an original hand-drawn anime portrait of a young adult man, approximately late twenties, with short naturally tousled dark charcoal hair, warm intelligent dark eyes, delicate thin round glasses, and a relaxed subtle closed-mouth smile. He wears a simple warm cream shirt beneath a muted forest-green overshirt.
+Scene/backdrop: clean pale sage and warm ivory paper background, very faint watercolor wash, empty and uncluttered.
+Style/medium: sophisticated Japanese anime illustration, expressive fine ink contours with subtle line variation, hand-painted light gouache and watercolor shading, visible gentle paper grain, thoughtfully drawn facial anatomy.
+Composition/framing: square canvas; one character, head and upper chest centered; face turned just slightly in three-quarter view while looking toward viewer; ample breathing room above the hair and around shoulders; entire hair silhouette comfortably inside central 75 percent of canvas. Designed to remain clear and elegant when displayed as a small circular or softly rounded profile photo.
+Lighting/mood: soft diffuse daylight, approachable, thoughtful, composed, quietly confident.
+Color palette: warm ivory, pale sage, muted forest green, charcoal black, restrained peach skin tones.
+Constraints: original fictional adult character; no text, no lettering, no logos, no watermark, no objects or other characters, no frame.
+Avoid: chibi proportions, childish face, exaggerated sparkling eyes, glossy 3D rendering, heavy saturated colors, dramatic action pose, overly elaborate background.
