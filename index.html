@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiyuan Dong · Medical Robotics</title>
     <meta name="description" content="Shiyuan Dong's academic homepage. Research interests include FBG-based sensors, tactile sensing, and medical robotics.">
-    <meta name="theme-color" content="#f7f6f0">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
 </head>
-<body>
+<body id="homepage">
     <a class="skip-link" href="#about-me">Skip to content</a>
     <header class="site-header">
-        <nav class="nav-bar page-width" aria-label="Primary navigation">
-            <a class="wordmark" href="#homepage" aria-label="Shiyuan Dong home"><span class="monogram" aria-hidden="true">sd.</span><span>Shiyuan Dong</span></a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" hidden>Menu <span aria-hidden="true">＋</span></button>
+        <nav class="nav-bar wrap" aria-label="Primary navigation">
+            <a class="wordmark" href="#homepage">Shiyuan Dong</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" hidden>Menu <span aria-hidden="true">☰</span></button>
             <div class="nav-links" id="nav-links">
-                <a href="#about-me">About</a>
+                <a href="#about-me" aria-current="location">About</a>
                 <a href="#news">News</a>
                 <a href="#publications">Publications</a>
                 <a href="#honors-and-awards">Honors</a>
@@ -25,40 +25,32 @@
             </div>
         </nav>
     </header>
-    <main class="page-width" id="homepage">
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> PH.D. STUDENT · SJTU IMR</p>
-                <h1 id="hero-title">Shiyuan <em>Dong.</em></h1>
-                <p class="hero-field">Medical robotics</p>
-                <p class="hero-affiliation">Institute of Medical Robotics<br>Shanghai Jiao Tong University</p>
-                <div class="hero-links">
-                    <a class="button button-primary" href="mailto:dongshiyuan@sjtu.edu.cn">Get in touch <span aria-hidden="true">↗</span></a>
-                    <a class="button button-secondary" href="https://scholar.google.com/citations?hl=zh-CN&amp;user=5W-FI5kAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
-                </div>
-            </div>
-            <div class="portrait-composition">
-                <div class="portrait-frame">
-                    <img class="profile-img" src="images/avatar-anime.png" alt="Hand-drawn anime avatar of a young man with dark hair and glasses" width="1254" height="1254" fetchpriority="high">
-                </div>
-                <span class="portrait-spark" aria-hidden="true">✳</span>
-                <span class="portrait-caption">A little curiosity, every day.</span>
-            </div>
-        </section>
-        <div class="interest-strip" aria-label="Research interests">
-            <span class="strip-label">RESEARCH INTERESTS</span>
-            <span>FBG-based sensors</span><i aria-hidden="true">/</i>
-            <span>Tactile sensing</span><i aria-hidden="true">/</i>
-            <span>Medical robotics</span>
-        </div>
-        <section aria-labelledby="about-me-title" class="content-section" id="about-me"><div class="section-heading"><span aria-hidden="true" class="section-number">01</span><h2 id="about-me-title">About Me</h2></div><div class="section-body"><p>
+    <main>
+        <section class="intro" id="about-me" aria-labelledby="hero-title">
+            <div class="intro-grid wrap">
+                <div class="intro-copy">
+                    <h1 id="hero-title">Shiyuan Dong</h1>
+                    <div class="role-strip">
+                        <div><span class="role-label">Ph.D. Student</span><span>Shanghai Jiao Tong University</span></div>
+                        <div><span class="role-label">Research</span><span>Institute of Medical Robotics</span></div>
+                    </div>
+                    <p class="intro-lead">Force &amp; shape sensing<br>for medical robotics.</p>
+                    <div class="bio"><p>
                     I am currently a Ph.D. student at the
                     <a href="https://imr.sjtu.edu.cn/" rel="noopener noreferrer" target="_blank">Institute of Medical Robotics (IMR)</a>,
                     <a href="https://www.sjtu.edu.cn/" rel="noopener noreferrer" target="_blank">Shanghai Jiao Tong University</a>,
                     supervised by
                     <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/964" rel="noopener noreferrer" target="_blank"><strong>Prof. Fang Chen</strong></a> and
                     <a href="https://bme.sjtu.edu.cn/Web/FacultyDetail/966" rel="noopener noreferrer" target="_blank"><strong>Prof. Hongen Liao</strong></a>.
-                    </p><p>Previously, I was a visiting student with the Research Centre for
+                    </p></div>
+                    <div class="social-links" aria-label="Contact and profiles">
+                        <a href="mailto:dongshiyuan@sjtu.edu.cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=5W-FI5kAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6M22 9v8"/></svg>Google Scholar</a>
+                        <a href="https://github.com/ShiyuanDong-Robot" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2.5 3-.4 6-1.5 6-6A5 5 0 0 0 19 6c.1-1-.1-2-.5-3-2 0-3 1-3.5 1.5a12 12 0 0 0-6 0C8.5 4 7 3 5 3c-.4 1-.6 2-.5 3A5 5 0 0 0 3 9.5c0 4.5 3 5.6 6 6-.7.5-1 1.5-1 2.5v4"/></svg>GitHub</a>
+                    </div>
+                    <details class="profile-details">
+                        <summary><span>More about me</span><span class="details-sign" aria-hidden="true"></span></summary>
+                        <div class="details-body"><p>Previously, I was a visiting student with the Research Centre for
                     <a href="https://coet.siat.ac.cn/" rel="noopener noreferrer" target="_blank">Opto-Electronic Engineering and Technology</a>,
                     <a href="https://www.siat.ac.cn/" rel="noopener noreferrer" target="_blank">Shenzhen Institute of Advanced Technology</a>,
                     <a href="https://www.cas.cn/" rel="noopener noreferrer" target="_blank">Chinese Academy of Sciences</a>,
@@ -78,37 +70,53 @@
                     guided by
                     <a href="https://faet.fudan.edu.cn/e4/6a/c23898a255082/page.htm" rel="noopener noreferrer" target="_blank"><strong>Prof. Yunlong Zhu</strong></a> and
                     <a href="https://faet.fudan.edu.cn/c8/20/c23904a706592/page.htm" rel="noopener noreferrer" target="_blank"><strong>Chenyao Bai</strong></a>.
-                </p>
-<p class="focus-note"><strong>Recent focus:</strong> Force and shape sensing, navigation, magnetic controlling for medical robotics.</p></div></section>
-        <section aria-labelledby="news-title" class="content-section" id="news"><div class="section-heading"><span aria-hidden="true" class="section-number">02</span><h2 id="news-title">News</h2></div><div class="section-body"><ul class="news-list">
+                </p><p class="focus-note"><strong>Recent focus:</strong> Force and shape sensing, navigation, magnetic controlling for medical robotics.</p>
+                            <p><strong>Research interests:</strong> FBG-based sensors, tactile sensing, and medical robotics.</p>
+                        </div>
+                    </details>
+                </div>
+                <div class="portrait-frame">
+                    <img src="images/avatar-anime-v2.png" alt="Original anime portrait of a young man with black hair, a white shirt, and a dark jacket" width="1254" height="1254" fetchpriority="high">
+                </div>
+            </div>
+        </section>
+        <section class="block soft" id="news" aria-labelledby="news-title">
+            <div class="wrap">
+                <h2 id="news-title">News</h2>
+                <ul class="news-list" id="news-list">
 <li><time datetime="2026-09">2026.09</time><div>My forth Ph.D. paper was accepted by <strong>IEEE Transactions on Medical Robotics and Bionics</strong>. Thanks to <strong>Peibo</strong>!</div></li>
 <li><time datetime="2026-08">2026.08</time><div>My third Ph.D. paper was accepted by <strong>npj Robotics</strong>. Thanks to <strong>Peibo</strong>!</div></li>
 <li><time datetime="2026-08">2026.08</time><div>New paper accepted to <strong>IEEE Robotics and Automation Letters</strong>! Congratulations to <strong>Jiahang</strong>!</div></li>
 <li><time datetime="2026-06">2026.06</time><div>New paper accepted to <strong>Advanced Interventional Materials</strong>! Congratulations to <strong>Keyu</strong>!</div></li>
 <li><time datetime="2026-06">2026.06</time><div>My second Ph.D. paper was accepted by <strong>IROS</strong>. Thanks to <strong>Peibo</strong>!</div></li>
-<li><time datetime="2026-05">2026.05</time><div>New paper accepted to <strong>Advanced Intelligent Systems</strong>! Congratulations to <strong>Shucong</strong>!</div></li>
-<li><time datetime="2026-03">2026.03</time><div>My first Ph.D. paper was accepted by <strong>SmartBot</strong>. Thanks to <strong>Lingyu</strong>!</div></li>
-</ul></div></section>
-        <section aria-labelledby="publications-title" class="content-section" id="publications"><div class="section-heading"><span aria-hidden="true" class="section-number">03</span><h2 id="publications-title">Selected Publications</h2></div><div class="section-body"><p class="section-note">(†: equal contribution, *: corresponding author)</p>
-<div class="publication-tools" hidden="">
-<div aria-label="Filter publications by year" class="year-filters" role="group">
-<button aria-pressed="true" data-filter="all" type="button">All years</button>
-<button aria-pressed="false" data-filter="2026" type="button">2026</button>
-<button aria-pressed="false" data-filter="2025" type="button">2025</button>
-<button aria-pressed="false" data-filter="2024" type="button">2024</button>
-</div>
-<p aria-live="polite" class="publication-count" role="status">12 publications</p>
-</div><div class="pub-list">
-<article class="pub-item" data-year="2026"><div class="pub-index"><span>01</span><time datetime="2026">2026</time></div><div class="pub-content">
-<h3 class="pub-title">Self-Supervised Mask-Aware Transformers for Fault-Tolerant FBG Force Sensing in Minimally Invasive Surgical Robotics</h3>
+<li class="older-news"><time datetime="2026-05">2026.05</time><div>New paper accepted to <strong>Advanced Intelligent Systems</strong>! Congratulations to <strong>Shucong</strong>!</div></li>
+<li class="older-news"><time datetime="2026-03">2026.03</time><div>My first Ph.D. paper was accepted by <strong>SmartBot</strong>. Thanks to <strong>Lingyu</strong>!</div></li>
+</ul>
+                <button class="news-toggle" type="button" aria-expanded="false" aria-controls="news-list" hidden>Show all news <span aria-hidden="true">↓</span></button>
+            </div>
+        </section>
+        <section class="block" id="publications" aria-labelledby="publications-title">
+            <div class="wrap">
+                <div class="section-heading"><h2 id="publications-title">Selected Publications</h2><p class="section-note">† Equal contribution · * Corresponding author</p></div>
+                <div class="publication-tools" hidden>
+                    <div class="year-filters" role="group" aria-label="Filter publications by year">
+                        <button type="button" data-filter="all" aria-pressed="true">All years</button>
+                        <button type="button" data-filter="2026" aria-pressed="false">2026</button>
+                        <button type="button" data-filter="2025" aria-pressed="false">2025</button>
+                        <button type="button" data-filter="2024" aria-pressed="false">2024</button>
+                    </div>
+                    <p class="publication-count" role="status" aria-live="polite">12 publications</p>
+                </div>
+                <div class="publication-group" data-publication-year="2026"><h3 class="year-heading">2026</h3><div class="pub-list"><article class="pub-item lead-author" data-year="2026"><span aria-hidden="true" class="pub-number">01</span><div class="pub-content">
+<h4 class="pub-title">Self-Supervised Mask-Aware Transformers for Fault-Tolerant FBG Force Sensing in Minimally Invasive Surgical Robotics</h4>
 <div class="pub-authors">Peibo Sun†, <strong>Shiyuan Dong†</strong>, Shucheng Ye, Jianrong Cai, Yushan Liu, Hongen Liao, Tianqi Huang, Fang Chen*</div>
 <div class="pub-venue"><em>IEEE/RSJ International Conference on Intelligent Robots and Systems</em>, 2026</div>
 <div class="pub-tags">
 <a aria-label="Read paper: Self-Supervised Mask-Aware Transformers for Fault-Tolerant FBG Force Sensing in Minimally Invasive Surgical Robotics" class="tag" href="https://arxiv.org/abs/2606.18628" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2026"><div class="pub-index"><span>02</span><time datetime="2026">2026</time></div><div class="pub-content">
-<h3 class="pub-title">Bronchoscopy Robot with Enhanced Flexibility and Stability via Multi-Segment Variable Stiffness Catheter</h3>
+<article class="pub-item" data-year="2026"><span aria-hidden="true" class="pub-number">02</span><div class="pub-content">
+<h4 class="pub-title">Bronchoscopy Robot with Enhanced Flexibility and Stability via Multi-Segment Variable Stiffness Catheter</h4>
 <div class="pub-authors">Shucong Yin, Bin Huang, <strong>Shiyuan Dong</strong>, Junhao Wang, Liangsheng Zhao, Yang Yang, Bingkun Bao, Hongen Liao, Fang Chen, Tianqi Huang, Boyu Zhang*</div>
 <div class="pub-venue"><em>Advanced Intelligent Systems</em>, 2026</div>
 <div class="pub-tags">
@@ -117,17 +125,16 @@
 <a aria-label="Read paper: Bronchoscopy Robot with Enhanced Flexibility and Stability via Multi-Segment Variable Stiffness Catheter" class="tag" href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aisy.70451" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2026"><div class="pub-index"><span>03</span><time datetime="2026">2026</time></div><div class="pub-content">
-<h3 class="pub-title">Fiber Bragg Grating Force Sensors for Minimally Invasive Surgery: State of the Art, Challenges, and Opportunities</h3>
+<article class="pub-item lead-author" data-year="2026"><span aria-hidden="true" class="pub-number">03</span><div class="pub-content">
+<h4 class="pub-title">Fiber Bragg Grating Force Sensors for Minimally Invasive Surgery: State of the Art, Challenges, and Opportunities</h4>
 <div class="pub-authors"><strong>Shiyuan Dong†</strong>, Tianqi Huang†, Lingyu Chen, Shucong Yin, Qing Chang, Dingpei Han, Yangxi Li, Boyu Zhang, Hongen Liao, Fang Chen*</div>
 <div class="pub-venue"><em>SmartBot</em>, 2026</div>
 <div class="pub-tags">
 <a aria-label="Read paper: Fiber Bragg Grating Force Sensors for Minimally Invasive Surgery: State of the Art, Challenges, and Opportunities" class="tag" href="https://onlinelibrary.wiley.com/journal/29981891" rel="noopener noreferrer" target="_blank">Paper</a>
 <a class="tag" href="https://mp.weixin.qq.com/s/HL0vxFEKTawqfqh5J8yIcw" rel="noopener noreferrer" target="_blank">公众号简介</a>
 </div>
-</div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>04</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery</h3>
+</div></article></div></div><div class="publication-group" data-publication-year="2025"><h3 class="year-heading">2025</h3><div class="pub-list"><article class="pub-item lead-author" data-year="2025"><span aria-hidden="true" class="pub-number">04</span><div class="pub-content">
+<h4 class="pub-title">A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery</h4>
 <div class="pub-authors"><strong>Shiyuan Dong†</strong>, Tianyu Yang†, Yuyang Lou, Dong Luo, Bin Yang, Huanhuan Liu, Jianwei Wu*, Yuming Dong*</div>
 <div class="pub-venue"><em>IEEE Transactions on Instrumentation and Measurement</em>, 2025</div>
 <div class="pub-tags">
@@ -136,8 +143,8 @@
 <a aria-label="Read paper: A High-Precision Miniature 3-D Tactile Force Sensor Based on Fiber Bragg Grating for Minimally Invasive Surgery" class="tag" href="https://ieeexplore.ieee.org/abstract/document/11017448" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>05</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope</h3>
+<article class="pub-item lead-author" data-year="2025"><span aria-hidden="true" class="pub-number">05</span><div class="pub-content">
+<h4 class="pub-title">A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope</h4>
 <div class="pub-authors"><strong>Shiyuan Dong</strong>, Sen Ma, Tenglong Zhou, Yuyang Lou, Xuanwei Xiong, Keyu Wei, Dong Luo, Jianwei Wu, Huanhuan Liu, Ran Tao*, Tianyu Yang*, Yuming Dong</div>
 <div class="pub-venue"><em>Sensors</em>, 2025</div>
 <div class="pub-tags">
@@ -146,8 +153,8 @@
 <a aria-label="Read paper: A Miniaturized FBG Tactile Sensor for the Tip of a Flexible Ureteroscope" class="tag" href="https://www.mdpi.com/1424-8220/25/9/2807" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>06</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">Multifunctional Magnetic Catheter Robot With Triaxial Force Sensing Capability for Minimally Invasive Surgery</h3>
+<article class="pub-item" data-year="2025"><span aria-hidden="true" class="pub-number">06</span><div class="pub-content">
+<h4 class="pub-title">Multifunctional Magnetic Catheter Robot With Triaxial Force Sensing Capability for Minimally Invasive Surgery</h4>
 <div class="pub-authors">Shixiong Fu, <strong>Shiyuan Dong</strong>, Haolan Shen, Zhiqiang Chen, Guoyao Ma, Mingxue Cai, Chenyang Huang, Qianbi Peng, Chenyao Bai, Yuming Dong, Huanhuan Liu, Tianyu Yang*, Tiantian Xu*</div>
 <div class="pub-venue"><em>Research</em>, 2025</div>
 <div class="pub-tags">
@@ -157,8 +164,8 @@
 <a class="tag" href="https://mp.weixin.qq.com/s/GfYlWOr2UlYIG2ggoJbwfw" rel="noopener noreferrer" target="_blank">公众号简介</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>07</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter</h3>
+<article class="pub-item" data-year="2025"><span aria-hidden="true" class="pub-number">07</span><div class="pub-content">
+<h4 class="pub-title">Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter</h4>
 <div class="pub-authors">Xingyu Zhang, <strong>Shiyuan Dong</strong>, Zhiyuan Chen, Ronghui Xu, Huanhuan Liu, Tianyu Yang, Zengle Ren*, Yuming Dong*</div>
 <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
 <div class="pub-tags">
@@ -167,8 +174,8 @@
 <a aria-label="Read paper: Demodulation Method for GaAs Fiber-Optic Temperature Sensing Based on Reference Filter" class="tag" href="https://ieeexplore.ieee.org/abstract/document/10918605/" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>08</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</h3>
+<article class="pub-item lead-author" data-year="2025"><span aria-hidden="true" class="pub-number">08</span><div class="pub-content">
+<h4 class="pub-title">Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces</h4>
 <div class="pub-authors"><strong>Shiyuan Dong</strong>, Xingyu Zhang, Yuyang Lou, Dong Luo, Jianwei Wu*, Ran Tao*, Huanhuan Liu*, Tianyu Yang, Yuming Dong</div>
 <div class="pub-venue"><em>Optics Express</em>, 2025</div>
 <div class="pub-tags">
@@ -177,8 +184,8 @@
 <a aria-label="Read paper: Miniature FBG Force Sensor Capable of Effectively Resisting Lateral Forces" class="tag" href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-33-4-6581&amp;html=true" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2025"><div class="pub-index"><span>09</span><time datetime="2025">2025</time></div><div class="pub-content">
-<h3 class="pub-title">FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</h3>
+<article class="pub-item lead-author" data-year="2025"><span aria-hidden="true" class="pub-number">09</span><div class="pub-content">
+<h4 class="pub-title">FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber</h4>
 <div class="pub-authors">Yuyang Lou†, <strong>Shiyuan Dong†</strong>, Tianyu Yang*, Xingyu Wan, Liang Zhang, Dong Luo, Jianwei Wu*, Huanhuan Liu, Yuming Dong</div>
 <div class="pub-venue"><em>IEEE Sensors Journal</em>, 2025</div>
 <div class="pub-tags">
@@ -186,9 +193,8 @@
 <span class="tag">IF 4.5</span>
 <a aria-label="Read paper: FBG-Based Triaxial Contact Force Sensor With Segment-by-Segment Sensitivity Separation Method Using a Single Fiber" class="tag" href="https://ieeexplore.ieee.org/abstract/document/10747836" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
-</div></article>
-<article class="pub-item" data-year="2024"><div class="pub-index"><span>10</span><time datetime="2024">2024</time></div><div class="pub-content">
-<h3 class="pub-title">A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</h3>
+</div></article></div></div><div class="publication-group" data-publication-year="2024"><h3 class="year-heading">2024</h3><div class="pub-list"><article class="pub-item" data-year="2024"><span aria-hidden="true" class="pub-number">10</span><div class="pub-content">
+<h4 class="pub-title">A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm</h4>
 <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Rongliang Chen, Zhengyong Zhou, Zengle Ren, Huanhuan Liu, Yuming Dong*, Tianyu Yang*</div>
 <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
 <div class="pub-tags">
@@ -197,8 +203,8 @@
 <a aria-label="Read paper: A Hollow-Core Anti-Resonant Fiber Multi-Objective Multi-Modal Optimization Assisted by a Proxy Model Combined With Clustering Algorithm" class="tag" href="https://ieeexplore.ieee.org/abstract/document/10664009" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2024"><div class="pub-index"><span>11</span><time datetime="2024">2024</time></div><div class="pub-content">
-<h3 class="pub-title">A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</h3>
+<article class="pub-item lead-author" data-year="2024"><span aria-hidden="true" class="pub-number">11</span><div class="pub-content">
+<h4 class="pub-title">A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies</h4>
 <div class="pub-authors"><strong>Shiyuan Dong</strong>, Zihan Liu, Yuyang Lou, Dong Luo, Jianwei Wu, Bin Yang, Huanhuan Liu, Tianyu Yang*, Yuming Dong*</div>
 <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
 <div class="pub-tags">
@@ -207,8 +213,8 @@
 <a aria-label="Read paper: A High-Precision Miniature Triaxial FBG Force Sensor for Detecting Tissue Anomalies" class="tag" href="https://ieeexplore.ieee.org/abstract/document/10535215/" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
 </div></article>
-<article class="pub-item" data-year="2024"><div class="pub-index"><span>12</span><time datetime="2024">2024</time></div><div class="pub-content">
-<h3 class="pub-title">Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling</h3>
+<article class="pub-item" data-year="2024"><span aria-hidden="true" class="pub-number">12</span><div class="pub-content">
+<h4 class="pub-title">Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling</h4>
 <div class="pub-authors">Zihan Liu, <strong>Shiyuan Dong</strong>, Liang Zhang, Huanhuan Liu, Zhengyong Zhou, Yuming Dong*, Tianyu Yang*</div>
 <div class="pub-venue"><em>Journal of Lightwave Technology</em>, 2024</div>
 <div class="pub-tags">
@@ -216,12 +222,14 @@
 <span class="tag">IF 4.8</span>
 <a aria-label="Read paper: Exhaustive Design and Statistical Analysis of Hc-Arfs Based on Geometric Modeling" class="tag" href="https://ieeexplore.ieee.org/abstract/document/10494530" rel="noopener noreferrer" target="_blank">Paper</a>
 </div>
-</div></article>
-</div></div></section>
-        <section aria-labelledby="honors-and-awards-title" class="content-section" id="honors-and-awards"><div class="section-heading"><span aria-hidden="true" class="section-number">04</span><h2 id="honors-and-awards-title">Honors and Awards</h2></div><div class="section-body"><ul>
+</div></article></div></div>
+            </div>
+        </section>
+        <section class="block soft" id="honors-and-awards" aria-labelledby="honors-and-awards-title">
+            <div class="wrap"><h2 id="honors-and-awards-title">Honors &amp; Awards</h2><div class="honors-list"><ul>
 <li>
                         Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2025.04
-                        <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ" rel="noopener noreferrer" target="_blank">(公众号报道)</a><br/>
+                        <a href="https://mp.weixin.qq.com/s/jCYvti-iADgADPOaXTntvQ" rel="noopener noreferrer" target="_blank">(公众号报道)</a><br>
                         (全国光学与光学工程博士生学术联赛优秀海报奖，连续两年！)
                     </li>
 <li>
@@ -237,19 +245,17 @@
                         Outstanding Poster Award of China PhD Academic Competition in Optics and Optical Engineering, 2024.04<br/>
                         (全国光学与光学工程博士生学术联赛优秀海报奖)
                     </li>
-</ul></div></section>
-        <section aria-labelledby="selected-service-title" class="content-section" id="selected-service"><div class="section-heading"><span aria-hidden="true" class="section-number">05</span><h2 id="selected-service-title">Selected Service</h2></div><div class="section-body"><p><strong>Reviewer</strong></p>
-<ul>
+</ul></div></div>
+        </section>
+        <section class="block" id="selected-service" aria-labelledby="selected-service-title">
+            <div class="wrap"><h2 id="selected-service-title">Academic Service</h2><div class="service-layout"><h3>Reviewer</h3><ul>
 <li>IEEE Transactions on Industrial Electronics (JCR Q1, IF: 7.2)</li>
 <li>IEEE Transactions on Mechatronics (JCR Q1, IF: 7.3)</li>
 <li>IEEE Transactions on Instrumentation and Measurement (JCR Q1, IF: 5.9)</li>
 <li>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</li>
-</ul></div></section>
-        <section class="contact-section" aria-labelledby="contact-title">
-            <div><p class="eyebrow">LET’S CONNECT</p><h2 id="contact-title">Keep in touch.</h2></div>
-            <a href="mailto:dongshiyuan@sjtu.edu.cn">dongshiyuan@sjtu.edu.cn <span aria-hidden="true">↗</span></a>
+</ul></div></div>
         </section>
     </main>
-    <footer class="site-footer page-width"><span>© Shiyuan Dong</span><a href="#homepage">Back to top <span aria-hidden="true">↑</span></a></footer>
+    <footer class="site-footer"><div class="wrap footer-content"><span>© Shiyuan Dong</span><a href="mailto:dongshiyuan@sjtu.edu.cn">dongshiyuan@sjtu.edu.cn</a><a href="#homepage">Back to top <span aria-hidden="true">↑</span></a></div></footer>
 </body>
 </html>
