@@ -37,7 +37,7 @@ p { margin: 0 0 14px; }
 .menu-toggle span { padding-left: 8px; }
 .intro { position: relative; padding-block: 100px 56px; isolation: isolate; }
 .intro::before { content: ''; position: absolute; z-index: -1; top: 56px; left: 0; width: 76%; height: 490px; background: radial-gradient(ellipse at 17% 20%, #edf4fb 0, #f7f9fc 38%, transparent 70%); opacity: .65; pointer-events: none; }
-.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 34%); align-items: start; gap: 32px; }
+.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 27%); align-items: start; gap: 32px; }
 .intro-copy { min-width: 0; }
 .identity-header { display: grid; grid-template-columns: minmax(0, 1fr) 112px; align-items: center; gap: 20px; }
 .identity-heading { min-width: 0; }
@@ -66,7 +66,7 @@ h1 { margin: 0; font-size: clamp(38px, 4.8vw, 56px); font-weight: 400; line-heig
 .profile-details[open] .details-sign::before { content: '−'; }
 .details-body { padding-top: 15px; color: var(--muted); font-size: 13px; line-height: 1.75; }
 .details-body p:last-child { margin-bottom: 0; }
-.portrait-frame { overflow: hidden; aspect-ratio: 4 / 5; border-radius: 22px; background: #e6eff8; border: 1px solid var(--line); }
+.portrait-frame { width: 100%; max-width: 280px; justify-self: end; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 22px; background: #e6eff8; border: 1px solid var(--line); }
 .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 46%; transition: transform .4s ease; }
 .portrait-frame:hover img { transform: scale(1.025); }
 .block { padding-block: 48px; }
@@ -116,6 +116,7 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 body.dialog-open { overflow: hidden; }
 .service-layout { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 25px; }
 .service-layout h3 { margin: 0; color: var(--muted); font-size: 15px; font-weight: 500; }
+.reviewer-icon { display: block; width: 76px; height: 76px; margin-top: 12px; color: #517bb7; pointer-events: none; }
 .service-layout ul { margin: 0; padding-left: 16px; font-size: 13.5px; color: var(--muted); }
 .service-layout li { padding-bottom: 5px; }
 .site-footer { padding-block: 23px; border-top: 1px solid var(--line); }
@@ -126,7 +127,7 @@ body.dialog-open { overflow: hidden; }
     .js .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; padding: 15px 28px 21px; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 20px rgb(18 19 23 / 4%); }
     .js .nav-links.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
     .js .nav-links a { padding: 8px 0; }
-    .intro-grid { gap: 25px; grid-template-columns: minmax(0, 1fr) minmax(230px, 34%); }
+    .intro-grid { gap: 25px; grid-template-columns: minmax(0, 1fr) minmax(200px, 28%); }
     .identity-header { grid-template-columns: minmax(0, 1fr) 80px; gap: 14px; }
     .current-institution { width: 80px; }
     .current-institution img { height: 80px; }
@@ -150,7 +151,7 @@ body.dialog-open { overflow: hidden; }
     .institution-strip { gap: 14px; padding-top: 22px; }
     .institution-link img { width: 52px; height: 52px; }
     .institution-link span { font-size: 10.5px; }
-    .portrait-frame { grid-row: 1; width: 200px; justify-self: center; border-radius: 18px; }
+    .portrait-frame { grid-row: 1; width: 176px; justify-self: center; border-radius: 18px; }
     h1 { font-size: 38px; text-align: center; }
     .role-strip { justify-content: center; gap: 14px 18px; margin-top: 18px; }
     .role-strip > div { text-align: center; padding: 0; border: 0; font-size: 12px; }
@@ -171,6 +172,8 @@ body.dialog-open { overflow: hidden; }
     .pub-authors { font-size: 12px; }
     .pub-venue { font-size: 10.5px; }
     .service-layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .service-label { display: flex; align-items: center; gap: 12px; }
+    .reviewer-icon { order: -1; width: 40px; height: 40px; margin-top: 0; }
     .service-layout ul { font-size: 13px; }
     .footer-content { justify-content: center; text-align: center; gap: 9px 18px; }
     .footer-content > span { width: 100%; }
