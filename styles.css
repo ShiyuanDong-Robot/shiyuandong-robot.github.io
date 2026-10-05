@@ -95,6 +95,20 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .media-placeholder svg { width: 32px; height: 24px; }
 .pub-media a { display: block; width: 100%; height: 100%; }
 .pub-media img, .pub-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.video-preview-toggle { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; width: 100%; height: 100%; padding: 0; border: 0; border-radius: inherit; background: transparent; color: #fff; }
+.video-preview-toggle svg { width: 34px; height: 34px; padding: 6px; border-radius: 7px; background: rgb(0 0 0 / 58%); opacity: 0; transition: opacity .15s ease; }
+.video-preview-toggle:hover svg, .video-preview-toggle:focus-visible svg { opacity: 1; }
+.video-preview-toggle[aria-expanded="true"] svg { opacity: 0; }
+.video-preview-toggle:focus-visible { outline-offset: -3px; }
+.video-preview-status { position: absolute; inset: 0; display: grid; place-content: center; background: #101114; color: #fff; font-size: 11px; line-height: 1.4; text-align: center; }
+.video-float { position: fixed; right: 24px; bottom: 24px; z-index: 25; width: min(480px, calc(100% - 32px)); overflow: hidden; border: 1px solid #333; border-radius: 12px; background: #101114; color: #fff; box-shadow: 0 12px 48px rgb(0 0 0 / 28%); }
+.video-float-heading { display: flex; align-items: center; justify-content: space-between; padding: 5px 8px 5px 14px; font-size: 12px; }
+.video-float-close { width: 32px; height: 32px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #fff; font-size: 24px; line-height: 1; }
+.video-float-close:hover { background: #333; }
+.video-float-body video { display: block; width: 100%; max-height: calc(100dvh - 100px); object-fit: contain; background: #000; }
+@media (max-width: 680px) {
+    .video-float { right: 16px; bottom: 16px; }
+}
 .pub-content { min-width: 0; }
 .pub-title { margin: 0 0 5px; font-size: 16px; line-height: 1.45; font-weight: 500; letter-spacing: -.01em; }
 .pub-authors { margin-bottom: 5px; font-size: 12.5px; line-height: 1.6; color: var(--faint); }
