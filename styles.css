@@ -80,7 +80,6 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .publication-group + .publication-group { margin-top: 32px; }
 .year-heading { margin: 0; padding-bottom: 8px; border-bottom: 2px solid var(--ink); font-size: 25px; line-height: 1.2; letter-spacing: -.03em; font-weight: 500; }
 .pub-item { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px 12px; border-bottom: 1px solid var(--line); border-left: 2px solid transparent; }
-.pub-item.lead-author { border-left-color: #8ab4f8; background: #f5f9ff; }
 .pub-number { padding-top: 2px; font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; }
 .pub-content { min-width: 0; }
 .pub-title { margin: 0 0 5px; font-size: 16px; line-height: 1.45; font-weight: 500; letter-spacing: -.01em; }
