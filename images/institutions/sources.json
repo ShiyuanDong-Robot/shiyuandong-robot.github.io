@@ -1,0 +1,34 @@
+[
+  {
+    "institution": "Shanghai Jiao Tong University",
+    "file": "sjtu.png",
+    "source_page": "https://vi.sjtu.edu.cn/index.php/articles/base/1",
+    "source_image": "https://vi.sjtu.edu.cn/img/base/Logo.png",
+    "width": 240,
+    "height": 240
+  },
+  {
+    "institution": "Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences",
+    "file": "siat.png",
+    "source_page": "https://www.siat.ac.cn/",
+    "source_image": "https://www.siat.ac.cn/images/szxjy-logoicon.png",
+    "width": 330,
+    "height": 329
+  },
+  {
+    "institution": "Harbin Institute of Technology",
+    "file": "hit.png",
+    "source_page": "https://www.hit.edu.cn/11544/list.htm",
+    "source_image": "https://www.hit.edu.cn/_upload/article/images/d3/ec/8fcaa5d24cb59a8e9660324ef50b/735df70a-538b-4bd6-8e52-3f373085a616.png",
+    "width": 254,
+    "height": 219
+  },
+  {
+    "institution": "Fudan University",
+    "file": "fudan.png",
+    "source_page": "https://corp.fudan.edu.cn/index_newlogo.htm",
+    "source_image": "https://corp.fudan.edu.cn/Images/Fudan_logo.png",
+    "width": 724,
+    "height": 724
+  }
+]
