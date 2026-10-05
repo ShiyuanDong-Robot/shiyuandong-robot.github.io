@@ -26,6 +26,33 @@ document.addEventListener('keydown', event => {
 });
 window.matchMedia('(min-width: 861px)').addEventListener('change', closeMenu);
 
+// The link opens the original QR image when dialog support or JavaScript is unavailable.
+const wechatLink = document.querySelector('.wechat-link');
+const wechatDialog = document.querySelector('#wechat-dialog');
+if (wechatLink && wechatDialog && typeof wechatDialog.showModal === 'function') {
+    wechatLink.setAttribute('aria-haspopup', 'dialog');
+    wechatLink.setAttribute('aria-controls', 'wechat-dialog');
+    wechatLink.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        wechatDialog.showModal();
+        document.body.classList.add('dialog-open');
+    });
+    wechatDialog.querySelector('.dialog-close').addEventListener('click', () => wechatDialog.close());
+    wechatDialog.addEventListener('click', event => {
+        const bounds = wechatDialog.getBoundingClientRect();
+        if (event.target === wechatDialog &&
+            (event.clientX < bounds.left || event.clientX > bounds.right ||
+             event.clientY < bounds.top || event.clientY > bounds.bottom)) {
+            wechatDialog.close();
+        }
+    });
+    wechatDialog.addEventListener('close', () => {
+        document.body.classList.remove('dialog-open');
+        wechatLink.focus({ preventScroll: true });
+    });
+}
+
 // All news stays visible when JavaScript is unavailable.
 const olderNews = Array.from(document.querySelectorAll('.older-news'));
 const newsToggle = document.querySelector('.news-toggle');
