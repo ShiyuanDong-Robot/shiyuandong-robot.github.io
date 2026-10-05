@@ -92,7 +92,6 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .pub-media { align-self: start; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 10px; background: #f5f7fa; }
 .media-placeholder { position: relative; display: grid; place-items: center; width: 100%; height: 100%; color: #b8c2cf; }
 .media-placeholder svg { width: 32px; height: 24px; }
-.media-placeholder span { position: absolute; bottom: 5px; right: 8px; font-size: 10px; color: var(--faint); font-variant-numeric: tabular-nums; }
 .pub-media a { display: block; width: 100%; height: 100%; }
 .pub-media img, .pub-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
 .pub-content { min-width: 0; }
@@ -178,7 +177,6 @@ body.dialog-open { overflow: hidden; }
 @media (max-width: 420px) {
     .pub-item { grid-template-columns: 80px minmax(0, 1fr); gap: 10px; }
     .media-placeholder svg { width: 24px; height: 18px; }
-    .media-placeholder span { font-size: 8px; right: 5px; bottom: 2px; }
 }
 @media (max-width: 360px) {
     .wrap { padding-inline: 16px; }
