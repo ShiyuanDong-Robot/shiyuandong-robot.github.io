@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <g stroke="#7793b5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M75 36v8m10-8v8"/>
+    <rect x="69" y="15" width="22" height="23" rx="6" fill="#edf3fa"/>
+    <path d="M74 24h12m-10 8h8"/>
+    <path d="M65 44h30l7 12-7 26H65l-7-26z" fill="#edf3fa"/>
+    <path d="M70 52h20v15H70zm4 22h12"/>
+    <path d="M65 84h30l5 10-9 8H69l-9-8z" fill="#edf3fa"/>
+    <path d="M73 82v3m14-3v3m-7-16v9" stroke="#9fb5cd"/>
+    <path d="m47 55-8 21 7 3 10-22m57-2 8 21-7 3-10-22" fill="#edf3fa"/>
+    <circle cx="51" cy="52" r="7" fill="#edf3fa"/>
+    <circle cx="109" cy="52" r="7" fill="#edf3fa"/>
+    <path d="m39 82-7 16 7 3 9-16m73-3 7 16-7 3-9-16" fill="#edf3fa"/>
+    <circle cx="43" cy="80" r="5" fill="#edf3fa"/>
+    <circle cx="117" cy="80" r="5" fill="#edf3fa"/>
+    <path d="m33 99-5 7 2 7 6-2 4-8m87-4 5 7-2 7-6-2-4-8"/>
+    <path d="m64 101-4 15h11l4-15m21 0 4 15H89l-4-15" fill="#edf3fa"/>
+    <circle cx="69" cy="99" r="5" fill="#edf3fa"/>
+    <circle cx="91" cy="99" r="5" fill="#edf3fa"/>
+    <path d="m59 122-3 15h12l3-15m30 0 3 15H92l-3-15" fill="#edf3fa"/>
+    <circle cx="65" cy="119" r="6" fill="#edf3fa"/>
+    <circle cx="95" cy="119" r="6" fill="#edf3fa"/>
+    <path d="M55 137h14v7H48v-4zm50 0H91v7h21v-4z" fill="#edf3fa"/>
+    <path d="M51 50v4m58-4v4m-44 63v4m30-4v4" stroke="#9fb5cd"/>
+  </g>
+</svg>
