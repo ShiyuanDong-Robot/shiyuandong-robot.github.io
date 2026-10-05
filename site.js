@@ -80,6 +80,105 @@ filters.forEach(button => button.addEventListener('click', () => {
     publicationCount.textContent = `${count} publication${count === 1 ? '' : 's'}${year === 'all' ? '' : ` · ${year}`}`;
 }));
 
+// Keep thumbnails uncluttered; open the same looping video in a larger player.
+const floatingVideo = document.querySelector('.video-float');
+const floatingVideoBody = floatingVideo.querySelector('.video-float-body');
+const floatingVideoClose = floatingVideo.querySelector('.video-float-close');
+let activeFloatingPreview = null;
+
+function closeFloatingVideo(restoreFocus = true) {
+    if (!activeFloatingPreview) return;
+    const { media, video, toggle, status } = activeFloatingPreview;
+    video.controls = false;
+    media.prepend(video);
+    status.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open paper video in picture-in-picture');
+    toggle.title = 'Open in picture-in-picture';
+    floatingVideo.hidden = true;
+    activeFloatingPreview = null;
+    video.play().catch(() => {});
+    if (restoreFocus) {
+        const focusTarget = toggle.getClientRects().length ? toggle : document.querySelector('[data-filter][aria-pressed="true"]');
+        if (focusTarget) focusTarget.focus({ preventScroll: true });
+    }
+}
+
+floatingVideoClose.addEventListener('click', () => closeFloatingVideo());
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && activeFloatingPreview) closeFloatingVideo();
+});
+
+document.querySelectorAll('.video-preview-toggle').forEach(toggle => {
+    const media = toggle.closest('.pub-media');
+    const video = media.querySelector('video');
+    const status = media.querySelector('.video-preview-status');
+    const preview = { media, video, toggle, status };
+    let opening = false;
+
+    function updateNativeState() {
+        const active = document.pictureInPictureElement === video || video.webkitPresentationMode === 'picture-in-picture';
+        toggle.setAttribute('aria-expanded', String(active));
+        toggle.setAttribute('aria-label', active ? 'Return paper video to page' : 'Open paper video in picture-in-picture');
+        toggle.title = active ? 'Return video to page' : 'Open in picture-in-picture';
+    }
+
+    video.addEventListener('enterpictureinpicture', updateNativeState);
+    video.addEventListener('leavepictureinpicture', updateNativeState);
+    video.addEventListener('webkitpresentationmodechanged', updateNativeState);
+    toggle.addEventListener('click', async () => {
+        if (opening) return;
+        opening = true;
+        try {
+            if (activeFloatingPreview === preview) {
+                closeFloatingVideo();
+                return;
+            }
+            if (document.pictureInPictureElement === video) {
+                await document.exitPictureInPicture();
+                return;
+            }
+            if (video.webkitPresentationMode === 'picture-in-picture') {
+                video.webkitSetPresentationMode('inline');
+                return;
+            }
+            closeFloatingVideo(false);
+            video.play().catch(() => {});
+            if (video.readyState > 0) {
+                try {
+                    if (document.pictureInPictureEnabled && typeof video.requestPictureInPicture === 'function') {
+                        await video.requestPictureInPicture();
+                        return;
+                    }
+                    if (typeof video.webkitSupportsPresentationMode === 'function' && video.webkitSupportsPresentationMode('picture-in-picture')) {
+                        video.webkitSetPresentationMode('picture-in-picture');
+                        return;
+                    }
+                } catch (_) {
+                    // Embedded browsers may deny native PiP; use a page-level player.
+                }
+            }
+            floatingVideoBody.append(video);
+            video.controls = true;
+            floatingVideo.hidden = false;
+            activeFloatingPreview = preview;
+            status.hidden = false;
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', 'Return paper video to page');
+            toggle.title = 'Return video to page';
+            video.play().catch(() => {});
+            floatingVideoClose.focus({ preventScroll: true });
+        } catch (_) {
+            // Keep the toggle accurate if the browser refuses to exit PiP.
+            updateNativeState();
+        } finally {
+            opening = false;
+        }
+    });
+    video.controls = false;
+    toggle.hidden = false;
+});
+
 if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
