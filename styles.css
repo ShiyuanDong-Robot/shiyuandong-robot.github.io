@@ -52,7 +52,7 @@ h1 { margin: 0; font-size: clamp(38px, 4.8vw, 56px); font-weight: 400; line-heig
 .role-strip { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 20px; }
 .role-strip > div { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 1px solid #dce2ea; font-size: 14px; font-weight: 500; }
 .role-label { color: var(--faint); font-size: 10.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
-.intro-lead { margin: 34px 0 24px; text-align: center; font-size: clamp(24px, 2.7vw, 32px); font-weight: 300; letter-spacing: -.025em; line-height: 1.3; }
+.intro-lead { margin: 34px 0 24px; text-align: center; font-size: clamp(22px, 2.2vw, 28px); font-weight: 300; letter-spacing: -.025em; line-height: 1.3; }
 .bio { font-size: 14px; color: var(--muted); line-height: 1.75; }
 .bio p { margin-bottom: 0; }
 .social-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 20px; }
@@ -135,7 +135,7 @@ body.dialog-open { overflow: hidden; }
     .institution-link { flex-direction: column; gap: 10px; text-align: center; }
     .role-strip { gap: 12px; }
     .role-strip > div { font-size: 12px; }
-    .intro-lead { margin-top: 28px; }
+    .intro-lead { margin-top: 28px; font-size: clamp(17px, 2.2vw, 20px); }
 }
 @media (max-width: 680px) {
     .wrap { padding-inline: 20px; }
