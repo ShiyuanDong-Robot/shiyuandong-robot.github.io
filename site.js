@@ -70,15 +70,41 @@ const publications = Array.from(document.querySelectorAll('.pub-item'));
 const publicationGroups = Array.from(document.querySelectorAll('.publication-group'));
 const filters = Array.from(document.querySelectorAll('[data-filter]'));
 const publicationCount = document.querySelector('.publication-count');
+const publicationsToggle = document.querySelector('.publications-toggle');
+let showAllPublications = false;
+let publicationYear = 'all';
 document.querySelector('.publication-tools').hidden = false;
 
+function updatePublications() {
+    const available = publications.filter(publication => showAllPublications || publication.classList.contains('pub-featured'));
+    publications.forEach(publication => {
+        publication.hidden = !available.includes(publication) || (publicationYear !== 'all' && publication.dataset.year !== publicationYear);
+    });
+    publicationGroups.forEach(group => {
+        group.hidden = !group.querySelector('.pub-item:not([hidden])');
+    });
+    filters.forEach(filter => {
+        const year = filter.dataset.filter;
+        filter.hidden = year !== 'all' && !available.some(publication => publication.dataset.year === year);
+        filter.setAttribute('aria-pressed', String(year === publicationYear));
+    });
+    const count = publications.filter(publication => !publication.hidden).length;
+    publicationCount.textContent = `${count}${showAllPublications ? '' : ' selected'} publication${count === 1 ? '' : 's'}${publicationYear === 'all' ? '' : ` · ${publicationYear}`}`;
+    publicationsToggle.setAttribute('aria-expanded', String(showAllPublications));
+    publicationsToggle.innerHTML = showAllPublications ? 'Show less <span aria-hidden="true">↑</span>' : 'Show all publications <span aria-hidden="true">↓</span>';
+}
+
 filters.forEach(button => button.addEventListener('click', () => {
-    const year = button.dataset.filter;
-    publicationGroups.forEach(group => { group.hidden = year !== 'all' && group.dataset.publicationYear !== year; });
-    const count = publications.filter(publication => year === 'all' || publication.dataset.year === year).length;
-    filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
-    publicationCount.textContent = `${count} publication${count === 1 ? '' : 's'}${year === 'all' ? '' : ` · ${year}`}`;
+    publicationYear = button.dataset.filter;
+    updatePublications();
 }));
+publicationsToggle.hidden = false;
+publicationsToggle.addEventListener('click', () => {
+    showAllPublications = !showAllPublications;
+    publicationYear = 'all';
+    updatePublications();
+});
+updatePublications();
 
 // Keep thumbnails uncluttered; open the same looping video in a larger player.
 const floatingVideo = document.querySelector('.video-float');
