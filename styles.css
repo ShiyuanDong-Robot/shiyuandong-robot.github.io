@@ -76,8 +76,8 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .news-list li { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .news-list time { padding-top: 1px; font-size: 12px; font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; }
 .news-list li div { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
-.news-toggle { display: flex; align-items: center; gap: 12px; margin: 20px auto 0; padding: 5px 16px; border-radius: 30px; border: 1px solid #d9dfe8; color: var(--muted); background: transparent; font-size: 12px; }
-.news-toggle:hover { background: #edf1f7; }
+.news-toggle, .publications-toggle { display: flex; align-items: center; gap: 12px; margin: 20px auto 0; padding: 5px 16px; border-radius: 30px; border: 1px solid #d9dfe8; color: var(--muted); background: transparent; font-size: 12px; }
+.news-toggle:hover, .publications-toggle:hover { background: #edf1f7; }
 .section-heading h2 { margin-bottom: 10px; }
 .section-note { color: var(--faint); font-size: 12px; margin-bottom: 22px; }
 .publication-tools { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin: 0 0 24px; }
@@ -86,9 +86,10 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .year-filters button:hover { background: var(--soft); color: var(--ink); }
 .year-filters button[aria-pressed="true"] { background: #e8f0fe; color: var(--blue); }
 .publication-count { margin: 0; font-size: 12px; color: var(--faint); }
-.publication-group + .publication-group { margin-top: 32px; }
+.publication-group:not([hidden]) ~ .publication-group:not([hidden]) { margin-top: 32px; }
 .year-heading { margin: 0; padding-bottom: 8px; border-bottom: 2px solid var(--ink); font-size: 25px; line-height: 1.2; letter-spacing: -.03em; font-weight: 500; }
-.pub-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.pub-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 18px; padding: 16px 12px; border-bottom: 1px solid var(--line); }
+.pub-featured { background: #eef4ff; box-shadow: inset 2px 0 #a5c4f4; }
 .pub-media { position: relative; align-self: start; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 10px; background: #f5f7fa; }
 .pub-number { position: absolute; right: 6px; bottom: 4px; z-index: 1; padding: 0 3px; border-radius: 3px; background: rgba(245, 247, 250, .9); color: var(--faint); font-size: 11px; line-height: 1.4; font-variant-numeric: tabular-nums; pointer-events: none; }
 .media-placeholder { position: relative; display: grid; place-items: center; width: 100%; height: 100%; color: #b8c2cf; }
@@ -181,7 +182,7 @@ body.dialog-open { overflow: hidden; }
     .publication-tools { margin-bottom: 20px; }
     .publication-count { width: 100%; }
     .year-heading { font-size: 23px; }
-    .pub-item { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 14px 0; }
+    .pub-item { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 14px 10px; }
     .pub-title { font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
     .pub-authors { font-size: 12px; }
     .pub-venue { font-size: 10.5px; }
