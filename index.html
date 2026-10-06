@@ -8,7 +8,9 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="moments.css?v=1">
     <script src="site.js?v=6" defer></script>
+    <script src="moments.js?v=1" defer></script>
 </head>
 <body id="homepage">
     <a class="skip-link" href="#about-me">Skip to content</a>
@@ -21,6 +23,7 @@
                 <a href="#news">News</a>
                 <a href="#publications">Publications</a>
                 <a href="#selected-service">Service</a>
+                <a href="#moments">Moments</a>
             </div>
         </nav>
     </header>
@@ -405,7 +408,38 @@
 <li>IEEE/RSJ International Conference on Intelligent Robots and Systems, 2026</li>
 </ul></div></div>
         </section>
+        <section class="block moments-section" id="moments" aria-labelledby="moments-title">
+            <div class="wrap">
+                <div class="section-heading">
+                    <h2 id="moments-title">Life &amp; Moments</h2>
+                    <p class="section-note">Photos and notes from everyday life.</p>
+                </div>
+                <div class="moments-status" id="moments-status" role="status" aria-live="polite">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="5" width="24" height="22" rx="4"/><circle cx="11" cy="12" r="2.5"/><path d="m5 23 7-7 5 5 4-4 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <h3 class="moments-status-title">Loading moments…</h3>
+                    <p class="moments-status-copy">Photos and notes will appear here.</p>
+                    <button class="moments-retry" id="moments-retry" type="button" hidden>Try again</button>
+                </div>
+                <noscript><style>#moments-status { display: none; }</style><p class="section-note">Enable JavaScript to view photos and notes.</p></noscript>
+                <div class="moments-feed" id="moments-feed"></div>
+                <button class="moments-toggle" type="button" aria-expanded="false" aria-controls="moments-feed" hidden>Show all moments <span aria-hidden="true">↓</span></button>
+            </div>
+        </section>
     </main>
+    <dialog class="moments-dialog" id="moments-dialog" aria-labelledby="moments-dialog-title">
+        <div class="moments-dialog-heading">
+            <h2 id="moments-dialog-title">Life &amp; Moments</h2>
+            <span class="moments-photo-count" aria-live="polite"></span>
+            <button class="moments-dialog-close" type="button" aria-label="Close photo viewer" autofocus><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="moments-photo-stage">
+            <img class="moments-photo-full" alt="">
+            <p class="moments-photo-error" hidden>This photo could not be loaded.</p>
+            <button class="moments-photo-prev" type="button" aria-label="Previous photo"><span aria-hidden="true">‹</span></button>
+            <button class="moments-photo-next" type="button" aria-label="Next photo"><span aria-hidden="true">›</span></button>
+        </div>
+        <p class="moments-photo-caption"></p>
+    </dialog>
     <aside class="video-float" aria-label="Paper video player" hidden>
         <div class="video-float-heading"><span>Paper video</span><button class="video-float-close" type="button" aria-label="Close floating video"><span aria-hidden="true">×</span></button></div>
         <div class="video-float-body"></div>
