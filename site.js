@@ -85,19 +85,37 @@ const floatingVideo = document.querySelector('.video-float');
 const floatingVideoBody = floatingVideo.querySelector('.video-float-body');
 const floatingVideoClose = floatingVideo.querySelector('.video-float-close');
 let activeFloatingPreview = null;
+let openingVideoPreview = false;
+const videoPreviews = new Map();
+
+function syncPreviewPlayback(preview) {
+    const { video } = preview;
+    const floating = activeFloatingPreview === preview || document.pictureInPictureElement === video || video.webkitPresentationMode === 'picture-in-picture';
+    if (preview.visible || floating) video.play().catch(() => {});
+    else video.pause();
+}
+
+const previewObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const preview = videoPreviews.get(entry.target);
+        preview.visible = entry.isIntersecting;
+        syncPreviewPlayback(preview);
+    });
+}, { threshold: 0 }) : null;
 
 function closeFloatingVideo(restoreFocus = true) {
     if (!activeFloatingPreview) return;
-    const { media, video, toggle, status } = activeFloatingPreview;
+    const preview = activeFloatingPreview;
+    const { media, video, toggle, status, openLabel } = preview;
     video.controls = false;
     media.prepend(video);
     status.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open paper video in picture-in-picture');
+    toggle.setAttribute('aria-label', openLabel);
     toggle.title = 'Open in picture-in-picture';
     floatingVideo.hidden = true;
     activeFloatingPreview = null;
-    video.play().catch(() => {});
+    syncPreviewPlayback(preview);
     if (restoreFocus) {
         const focusTarget = toggle.getClientRects().length ? toggle : document.querySelector('[data-filter][aria-pressed="true"]');
         if (focusTarget) focusTarget.focus({ preventScroll: true });
@@ -113,22 +131,26 @@ document.querySelectorAll('.video-preview-toggle').forEach(toggle => {
     const media = toggle.closest('.pub-media');
     const video = media.querySelector('video');
     const status = media.querySelector('.video-preview-status');
-    const preview = { media, video, toggle, status };
-    let opening = false;
+    const number = media.querySelector('.pub-number').textContent.trim();
+    const openLabel = `Open video for publication ${number} in picture-in-picture`;
+    const closeLabel = `Return video for publication ${number} to page`;
+    const preview = { media, video, toggle, status, openLabel, visible: !previewObserver };
+    videoPreviews.set(media, preview);
 
     function updateNativeState() {
         const active = document.pictureInPictureElement === video || video.webkitPresentationMode === 'picture-in-picture';
         toggle.setAttribute('aria-expanded', String(active));
-        toggle.setAttribute('aria-label', active ? 'Return paper video to page' : 'Open paper video in picture-in-picture');
+        toggle.setAttribute('aria-label', active ? closeLabel : openLabel);
         toggle.title = active ? 'Return video to page' : 'Open in picture-in-picture';
+        syncPreviewPlayback(preview);
     }
 
     video.addEventListener('enterpictureinpicture', updateNativeState);
     video.addEventListener('leavepictureinpicture', updateNativeState);
     video.addEventListener('webkitpresentationmodechanged', updateNativeState);
     toggle.addEventListener('click', async () => {
-        if (opening) return;
-        opening = true;
+        if (openingVideoPreview) return;
+        openingVideoPreview = true;
         try {
             if (activeFloatingPreview === preview) {
                 closeFloatingVideo();
@@ -164,7 +186,7 @@ document.querySelectorAll('.video-preview-toggle').forEach(toggle => {
             activeFloatingPreview = preview;
             status.hidden = false;
             toggle.setAttribute('aria-expanded', 'true');
-            toggle.setAttribute('aria-label', 'Return paper video to page');
+            toggle.setAttribute('aria-label', closeLabel);
             toggle.title = 'Return video to page';
             video.play().catch(() => {});
             floatingVideoClose.focus({ preventScroll: true });
@@ -172,11 +194,13 @@ document.querySelectorAll('.video-preview-toggle').forEach(toggle => {
             // Keep the toggle accurate if the browser refuses to exit PiP.
             updateNativeState();
         } finally {
-            opening = false;
+            openingVideoPreview = false;
         }
     });
     video.controls = false;
     toggle.hidden = false;
+    if (previewObserver) previewObserver.observe(media);
+    else syncPreviewPlayback(preview);
 });
 
 if ('IntersectionObserver' in window) {
