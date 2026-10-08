@@ -1,6 +1,7 @@
 'use strict';
 
 (() => {
+    const DEFAULT_VISIBLE_MOMENTS = 1;
     const feed = document.querySelector('#moments-feed');
     const status = document.querySelector('#moments-status');
     const statusTitle = status?.querySelector('.moments-status-title');
@@ -81,8 +82,8 @@
     }
 
     function updateVisibleMoments() {
-        articles.forEach((article, index) => { article.hidden = !expanded && index >= 3; });
-        toggle.hidden = articles.length <= 3;
+        articles.forEach((article, index) => { article.hidden = !expanded && index >= DEFAULT_VISIBLE_MOMENTS; });
+        toggle.hidden = articles.length <= DEFAULT_VISIBLE_MOMENTS;
         toggle.setAttribute('aria-expanded', String(expanded));
         const arrow = document.createElement('span');
         arrow.setAttribute('aria-hidden', 'true');
