@@ -1,6 +1,8 @@
 # 更新 Life & Moments
 
-生活动态由 `data/moments.json` 管理，照片保存在 `images/moments/`。主页按日期倒序排列，默认显示最近 3 条，点击 **Show all moments** 展开全部动态。
+生活动态由 `data/moments.json` 管理，照片保存在 `images/moments/`。主页按日期倒序排列，默认显示最近 1 条，点击 **Show all moments** 展开全部动态，点击 **Show less** 收起。
+
+默认显示数量由 `moments.js` 中的 `DEFAULT_VISIBLE_MOMENTS` 常量控制，当前值为 `1`。修改此值即可调整初始展示和收起后的条数。
 
 ## 在 GitHub 上发布
 
@@ -36,4 +38,4 @@
 
 ## 交给助手更新
 
-提供照片所在文件夹、配文、日期和可选地点，即可代为整理并发布。当前 `moments.json` 为 `[]`，页面显示等待更新的提示；上面的示例只用于说明填写格式。
+提供照片所在文件夹、配文、日期和可选地点，即可代为整理并发布。当 `moments.json` 为 `[]` 时，页面显示等待更新的提示；上面的示例只用于说明填写格式。
