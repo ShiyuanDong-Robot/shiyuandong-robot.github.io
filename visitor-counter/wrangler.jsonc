@@ -1,0 +1,15 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "shiyuan-homepage-visitors",
+    "main": "worker.mjs",
+    "compatibility_date": "2026-10-09",
+    "workers_dev": true,
+    "observability": { "enabled": false },
+    "d1_databases": [
+        {
+            "binding": "COUNTER_DB",
+            "database_name": "shiyuan-homepage-visitors",
+            "database_id": "ab8926e1-7acb-4374-8e75-7c4034151620"
+        }
+    ]
+}
