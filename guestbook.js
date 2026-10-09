@@ -8,12 +8,10 @@
     const MAX_NICKNAME = 24;
     const MAX_MESSAGE = 500;
     const MAX_COMMENTS = 3;
-    const REQUEST_TIMEOUT_MS = 10000;
     const canPost = window.location.origin === 'https://shiyuandong-robot.github.io';
-    const configuredEndpoint = document.querySelector('meta[name="visitor-counter-endpoint"]')?.content.trim();
-    const endpoint = readEndpoint(configuredEndpoint);
-    const canRequest = Boolean(endpoint && typeof fetch === 'function' && typeof AbortController === 'function');
-    const canCreateRequestId = typeof globalThis.crypto?.randomUUID === 'function';
+    const api = window.HomepageApi;
+    const canRequest = Boolean(api?.available);
+    const canCreateRequestId = Boolean(api?.canCreateRequestId);
     const shortDate = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
     const fullDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' });
     let busy = false;
@@ -23,25 +21,13 @@
     let retryTimer = null;
     let listVersion = 0;
     let listController = null;
+    let hasLoadedComments = false;
 
     function element(tag, className, text) {
         const node = document.createElement(tag);
         if (className) node.className = className;
         if (text !== undefined) node.textContent = text;
         return node;
-    }
-
-    function readEndpoint(value) {
-        if (!value) return null;
-        try {
-            const url = new URL(value);
-            const localEndpoint = url.protocol === 'http:' && url.hostname === '127.0.0.1';
-            if ((url.protocol !== 'https:' && !localEndpoint) || url.username || url.password || url.search || url.hash) return null;
-            url.pathname = `${url.pathname.replace(/\/+$/, '')}/`;
-            return url;
-        } catch (_) {
-            return null;
-        }
     }
 
     function characterCount(value) {
@@ -213,31 +199,8 @@
     limitCharacters(nickname, MAX_NICKNAME);
     limitCharacters(message, MAX_MESSAGE, updateCount);
 
-    async function request(method, payload, controller) {
-        const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-        try {
-            const headers = { Accept: 'application/json' };
-            if (payload) headers['Content-Type'] = 'application/json';
-            const response = await fetch(new URL('comments', endpoint).href, {
-                method,
-                credentials: 'omit',
-                referrerPolicy: 'no-referrer',
-                cache: 'no-store',
-                redirect: 'error',
-                headers,
-                body: payload ? JSON.stringify(payload) : undefined,
-                signal: controller.signal
-            });
-            let data = null;
-            try {
-                data = await response.json();
-            } catch (error) {
-                if (controller.signal.aborted) throw error;
-            }
-            return { response, data };
-        } finally {
-            clearTimeout(timeout);
-        }
+    function request(method, payload, controller) {
+        return api.request('comments', { method, body: payload || undefined, signal: controller.signal });
     }
 
     function renderComments(comments) {
@@ -271,6 +234,7 @@
 
     async function loadComments() {
         if (!canRequest) return;
+        recovery.pending();
         const version = ++listVersion;
         listController?.abort();
         listController = new AbortController();
@@ -284,11 +248,16 @@
             if (version !== listVersion) return;
             if (!response.ok || !validList(data)) throw new Error('Invalid comment list.');
             renderComments(data.comments);
+            hasLoadedComments = true;
+            recovery.succeeded();
         } catch (_) {
             if (version !== listVersion) return;
-            listStatus.textContent = 'Notes could not be loaded. Please try again.';
+            listStatus.textContent = hasLoadedComments
+                ? 'Could not refresh notes. Showing the last loaded notes.'
+                : 'Connecting to the guestbook… You can also try again.';
             listStatus.dataset.state = 'error';
             reloadButton.hidden = false;
+            recovery.failed();
         } finally {
             if (version === listVersion) recent.setAttribute('aria-busy', 'false');
         }
@@ -329,7 +298,7 @@
             INVALID_AVATAR: 'Please choose one of the available avatars.',
             CLIENT_ADDRESS_UNAVAILABLE: 'Your connection could not be verified. Please try again.'
         };
-        return Object.hasOwn(messages, code) ? messages[code] : 'Please check your nickname and note, then try again.';
+        return Object.prototype.hasOwnProperty.call(messages, code) ? messages[code] : 'Please check your nickname and note, then try again.';
     }
 
     form.addEventListener('submit', async event => {
@@ -359,7 +328,7 @@
         const fingerprint = JSON.stringify(payload);
         // Keep the request ID after uncertain failures so a retry cannot publish a duplicate.
         if (!pendingSubmission || pendingSubmission.fingerprint !== fingerprint) {
-            pendingSubmission = { fingerprint, body: { ...payload, requestId: crypto.randomUUID() } };
+            pendingSubmission = { fingerprint, body: { ...payload, requestId: api.createRequestId() } };
         }
         busy = true;
         setFeedback('Posting your note…');
@@ -396,9 +365,10 @@
         }
     });
 
-    reloadButton.addEventListener('click', loadComments);
+    const recovery = canRequest ? api.createRecovery(loadComments) : null;
+    reloadButton.addEventListener('click', () => { recovery?.restart(); loadComments(); });
     if (!canRequest) {
-        listStatus.textContent = endpoint ? 'The guestbook is unavailable in this browser.' : 'The guestbook is not connected yet.';
+        listStatus.textContent = 'The guestbook is unavailable. Please refresh this page.';
         listStatus.dataset.state = 'unavailable';
         list.hidden = true;
         availability.textContent = 'Posting will be available when the guestbook is connected.';
