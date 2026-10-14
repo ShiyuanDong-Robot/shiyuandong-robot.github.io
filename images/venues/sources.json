@@ -1,0 +1,104 @@
+[
+  {
+    "name": "npj Robotics",
+    "file": "npj-robotics.svg",
+    "homepage": "https://www.nature.com/npjrobot/",
+    "kind": "official-asset",
+    "asset_url": "https://media.springernature.com/full/nature-cms/uploads/product/npjrobot/header-84a3fe6c40e7d1b500f3fe189b2a2b33.svg",
+    "width": 175.3,
+    "height": 32
+  },
+  {
+    "name": "Research",
+    "file": "research.svg",
+    "homepage": "https://spj.science.org/journal/research",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "SmartBot",
+    "file": "smartbot.svg",
+    "homepage": "https://onlinelibrary.wiley.com/journal/29981891",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "Advanced Intelligent Systems",
+    "file": "advanced-intelligent-systems.svg",
+    "homepage": "https://onlinelibrary.wiley.com/journal/26404567",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "Optics Express",
+    "file": "optics-express.svg",
+    "homepage": "https://opg.optica.org/oe/home.cfm",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "IEEE/ASME Transactions on Mechatronics",
+    "file": "tmech.png",
+    "homepage": "http://www.ieee-asme-mechatronics.info/",
+    "kind": "official-asset",
+    "asset_url": "http://www.ieee-asme-mechatronics.info/wp-content/uploads/2024/11/cropped-logo.png",
+    "width": 1042,
+    "height": 200
+  },
+  {
+    "name": "IEEE Robotics and Automation Letters",
+    "file": "ral.png",
+    "homepage": "https://www.ieee-ras.org/publications/ieee-robotics-and-automation-letters/",
+    "kind": "official-asset",
+    "asset_url": "https://ras.papercept.net/images/ral/ral.png",
+    "width": 814,
+    "height": 109
+  },
+  {
+    "name": "IEEE Transactions on Medical Robotics and Bionics",
+    "file": "tmrb.png",
+    "homepage": "https://www.ieee-tmrb.org/new/",
+    "kind": "official-asset",
+    "asset_url": "https://www.ieee-tmrb.org/new/wp-content/uploads/2024/01/cropped-logo_tmrb.png",
+    "width": 1279,
+    "height": 345
+  },
+  {
+    "name": "IEEE Transactions on Instrumentation and Measurement",
+    "file": "tim.svg",
+    "homepage": "https://ieee-ims.org/publication/ieee-tim",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "Journal of Lightwave Technology",
+    "file": "jlt.svg",
+    "homepage": "https://opg.optica.org/jlt/home.cfm",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "IEEE Sensors Journal",
+    "file": "ieee-sensors-journal.svg",
+    "homepage": "https://ieee-sensors.org/ieee-sensors-journal/",
+    "kind": "local-typeset-name",
+    "asset_url": null,
+    "note": "Locally typeset journal name; this is not official logo artwork."
+  },
+  {
+    "name": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+    "file": "iros.png",
+    "homepage": "https://2026.ieee-iros.org/",
+    "kind": "official-asset",
+    "asset_url": "https://2026.ieee-iros.org/wp-content/uploads/sites/804/unnamed-1024x665.png",
+    "width": 1024,
+    "height": 665,
+    "note": "Official IROS 2026 Pittsburgh logo."
+  }
+]
