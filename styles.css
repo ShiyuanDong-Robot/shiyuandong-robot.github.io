@@ -78,7 +78,7 @@ h2 { margin: 0 0 23px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; f
 .venue-logo:hover { border-color: #bacde7; box-shadow: 0 5px 16px rgb(18 19 23 / 4%); text-decoration: none; }
 .venue-logo img { display: block; width: 100%; max-width: 220px; height: 68px; object-fit: contain; }
 .venue-logo-tmech { padding-inline: 12px; }
-.venue-logo.venue-logo-ral img { height: auto; aspect-ratio: 5.15; object-fit: cover; object-position: left; }
+.venue-logo-ral { padding-inline: 12px; }
 .publications-toggle { display: flex; align-items: center; gap: 12px; margin: 20px auto 0; padding: 5px 16px; border-radius: 30px; border: 1px solid #d9dfe8; color: var(--muted); background: transparent; font-size: 12px; }
 .publications-toggle:hover { background: #edf1f7; }
 .section-heading h2 { margin-bottom: 10px; }
