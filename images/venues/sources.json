@@ -10,53 +10,133 @@
   },
   {
     "name": "Research",
-    "file": "research.svg",
+    "file": "research-cover.webp",
     "homepage": "https://spj.science.org/journal/research",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://www.editorialmanager.com/research/account/cover.jpg",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained. The publisher-provided original cover is low resolution.",
+    "source_page": "https://www.editorialmanager.com/research/mainpage.html",
+    "source_sha256": "d660aaa3bb88fe2d98f8a3c22c2bb575a2e2b2a551d2509bbfa037fbe5e4288d",
+    "source_width": 223,
+    "source_height": 283,
+    "view_box": [
+      30,
+      25,
+      166,
+      45
+    ],
+    "width": 480,
+    "height": 130,
+    "rendered_sha256": "acb9da62bc6fb106e282b8d24774ba2380ce20341e50d1f0ce17ca78a46a7289"
   },
   {
     "name": "SmartBot",
-    "file": "smartbot.svg",
+    "file": "smartbot-cover.webp",
     "homepage": "https://onlinelibrary.wiley.com/journal/29981891",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://sme.hit.edu.cn/_upload/article/images/27/b4/566528b04184b44cf840bf8fc249/1fe4a427-7558-43e1-9bdb-45295c8ee702_d.jpg",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained.",
+    "source_page": "https://sme.hit.edu.cn/2026/0327/c18012a389021/page.htm",
+    "source_sha256": "1f678a3bc49fde01b94e02578ac36cc3c07bc6cf76b3f142da26c331c7d03913",
+    "source_width": 4393,
+    "source_height": 1979,
+    "view_box": [
+      18,
+      1130,
+      466,
+      146
+    ],
+    "width": 480,
+    "height": 150,
+    "rendered_sha256": "87cfd7db9367ef2cd75e21c3f44e5d9db8b380140fb940bb0026f835d9d5fb51"
   },
   {
     "name": "Advanced Intelligent Systems",
-    "file": "advanced-intelligent-systems.svg",
+    "file": "advanced-intelligent-systems-cover.webp",
     "homepage": "https://onlinelibrary.wiley.com/journal/26404567",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://application.wiley-vch.de/vch/journals/2501/2501_300w.png",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained. The publisher-provided original cover is low resolution.",
+    "source_page": "https://www.wiley-vch.de/en/shop/journals/1198-advanced-intelligent-systems-2501-en",
+    "source_sha256": "816cb108565aab8a1fdd5b26b0a3820c472c468bcd73a715009f3e846631dee2",
+    "source_width": 300,
+    "source_height": 394,
+    "view_box": [
+      106,
+      18,
+      181,
+      82
+    ],
+    "width": 480,
+    "height": 217,
+    "rendered_sha256": "25c4440a5b5439a2efd632909242e5977e7732d9a77d707184e807dabf9009e1"
   },
   {
     "name": "Optics Express",
-    "file": "optics-express.svg",
+    "file": "optics-express-cover.webp",
     "homepage": "https://opg.optica.org/oe/home.cfm",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://opg.optica.org/images/opg-oe.jpg",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained. The publisher-provided original cover is low resolution.",
+    "source_page": "https://www.optica.org/publications",
+    "source_sha256": "512fbe11478c5d4333212e5c42c049eb609a3a8344573a6baf41880388e9cd18",
+    "source_width": 179,
+    "source_height": 236,
+    "view_box": [
+      6,
+      53,
+      130,
+      53
+    ],
+    "width": 480,
+    "height": 196,
+    "rendered_sha256": "28e09a875d0597a2b3ac6d36bafc8aa0b4b61aa050068c5a6d53ca7b7021976f"
   },
   {
     "name": "IEEE/ASME Transactions on Mechatronics",
-    "file": "tmech.png",
+    "file": "tmech-display.svg",
     "homepage": "http://www.ieee-asme-mechatronics.info/",
-    "kind": "official-asset",
+    "kind": "official-wordmark-display-frame",
     "asset_url": "http://www.ieee-asme-mechatronics.info/wp-content/uploads/2024/11/cropped-logo.png",
-    "width": 1042,
-    "height": 200
+    "width": 600,
+    "height": 170,
+    "note": "SVG framing enlarges the original masthead lettering. The embedded official raster is unchanged.",
+    "view_box": {
+      "prefix": [
+        115,
+        48,
+        785,
+        45
+      ],
+      "title": [
+        243,
+        108,
+        532,
+        59
+      ]
+    },
+    "source_width": 1042,
+    "source_height": 200,
+    "source_sha256": "87966b21af8a631185d82aac2168febb7b75ec44baa3dea78bbc8855183db10b"
   },
   {
     "name": "IEEE Robotics and Automation Letters",
-    "file": "ral.png",
+    "file": "ral-display.svg",
     "homepage": "https://www.ieee-ras.org/publications/ieee-robotics-and-automation-letters/",
-    "kind": "official-asset",
+    "kind": "official-wordmark-display-frame",
     "asset_url": "https://ras.papercept.net/images/ral/ral.png",
-    "width": 814,
-    "height": 109
+    "width": 371,
+    "height": 67,
+    "note": "SVG framing enlarges the original masthead lettering. The embedded official raster is unchanged.",
+    "view_box": [
+      155,
+      16,
+      371,
+      67
+    ],
+    "source_width": 814,
+    "source_height": 109,
+    "source_sha256": "679e11e37e44e5b9fbbd585572b74fb1a76af6a19f5bb5163b0ab16ee13f42f0"
   },
   {
     "name": "IEEE Transactions on Medical Robotics and Bionics",
@@ -69,27 +149,56 @@
   },
   {
     "name": "IEEE Transactions on Instrumentation and Measurement",
-    "file": "tim.svg",
+    "file": "tim-cover.webp",
     "homepage": "https://ieee-ims.org/publication/ieee-tim",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://ieee-ims.org/files/ieeeims/images/publications/tim-front-cover.png",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained.",
+    "source_page": "https://ieee-ims.org/publication/ieee-tim",
+    "source_sha256": "a942017a974bad08b005ce22927f2ae209d5e11554767d2f27adfcdb8e6dfc9b",
+    "source_width": 5321,
+    "source_height": 6886,
+    "view_box": [
+      258,
+      340,
+      3280,
+      874
+    ],
+    "width": 480,
+    "height": 128,
+    "rendered_sha256": "acb4aedfd27caedfb2275668f9a0bbbfcb22df5b77218b03fad94b7b97b169c4"
   },
   {
     "name": "Journal of Lightwave Technology",
-    "file": "jlt.svg",
+    "file": "jlt-cover.webp",
     "homepage": "https://opg.optica.org/jlt/home.cfm",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-cover-masthead-export",
+    "asset_url": "https://opg.optica.org/images/osa-jlt.jpg",
+    "note": "Lossless WebP export of an SVG-framed official cover title. Original typography and colors are retained. The publisher-provided original cover is low resolution.",
+    "source_page": "https://www.optica.org/publications",
+    "source_sha256": "ece4d174bbf1c593378118bf4452068dc187a65d751ee1afc64b26dcdef43045",
+    "source_width": 179,
+    "source_height": 243,
+    "view_box": [
+      57,
+      14,
+      111,
+      55
+    ],
+    "width": 480,
+    "height": 238,
+    "rendered_sha256": "ff34b184e7370ece5c201c031509eff6e8fb4898a80d68585c4c37ffe5f21239"
   },
   {
     "name": "IEEE Sensors Journal",
-    "file": "ieee-sensors-journal.svg",
+    "file": "ieee-sensors-journal.webp",
     "homepage": "https://ieee-sensors.org/ieee-sensors-journal/",
-    "kind": "local-typeset-name",
-    "asset_url": null,
-    "note": "Locally typeset journal name; this is not official logo artwork."
+    "kind": "official-asset",
+    "asset_url": "https://ieee-sensors.org/wp-content/uploads/2026/06/sensors-journal_hr_color.webp",
+    "source_page": "https://ieee-sensors.org/ieee-sensors-journal/",
+    "source_sha256": "cfa05de2b0497f59195fae2595b912de07271540070b36ed17c86c3fd1694ba3",
+    "width": 2048,
+    "height": 282
   },
   {
     "name": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
