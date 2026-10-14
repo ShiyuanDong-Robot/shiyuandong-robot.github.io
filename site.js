@@ -53,18 +53,6 @@ if (wechatLink && wechatDialog && typeof wechatDialog.showModal === 'function') 
     });
 }
 
-// All news stays visible when JavaScript is unavailable.
-const olderNews = Array.from(document.querySelectorAll('.older-news'));
-const newsToggle = document.querySelector('.news-toggle');
-olderNews.forEach(item => { item.hidden = true; });
-newsToggle.hidden = olderNews.length === 0;
-newsToggle.addEventListener('click', () => {
-    const expanded = newsToggle.getAttribute('aria-expanded') !== 'true';
-    olderNews.forEach(item => { item.hidden = !expanded; });
-    newsToggle.setAttribute('aria-expanded', String(expanded));
-    newsToggle.innerHTML = expanded ? 'Show less <span aria-hidden="true">↑</span>' : 'Show all news <span aria-hidden="true">↓</span>';
-});
-
 // All publications remain visible when JavaScript is unavailable.
 const publications = Array.from(document.querySelectorAll('.pub-item'));
 const publicationGroups = Array.from(document.querySelectorAll('.publication-group'));
