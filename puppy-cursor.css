@@ -1,0 +1,33 @@
+/* Native cursor sprites keep the click point precise, including inside dialogs. */
+html { --puppy-pointer: url("images/cursor/puppy-idle.svg") 3 3; }
+html[data-puppy-mood="happy"] { --puppy-pointer: url("images/cursor/puppy-happy.svg") 3 3; }
+html[data-puppy-mood="study"] { --puppy-pointer: url("images/cursor/puppy-study.svg") 3 3; }
+html[data-puppy-mood="stars"] { --puppy-pointer: url("images/cursor/puppy-stars.svg") 3 3; }
+html[data-puppy-mood="love"] { --puppy-pointer: url("images/cursor/puppy-love.svg") 3 3; }
+html[data-puppy-mood="wave"] { --puppy-pointer: url("images/cursor/puppy-wave.svg") 3 3; }
+html[data-puppy-mood="wink"] { --puppy-pointer: url("images/cursor/puppy-wink.svg") 3 3; }
+.puppy-cursor-toggle {
+    display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0;
+    background: transparent; color: var(--faint); font: inherit; cursor: pointer;
+}
+.puppy-cursor-toggle img { width: 27px; height: 27px; object-fit: contain; }
+.puppy-cursor-toggle[aria-pressed="false"] img { opacity: .45; }
+.puppy-cursor-toggle:focus-visible { outline: 2px solid var(--blue, #2668d9); outline-offset: 4px; border-radius: 4px; }
+.puppy-cursor-toggle[hidden] { display: none; }
+@media (any-hover: hover) and (any-pointer: fine) {
+    html.puppy-cursor-on, html.puppy-cursor-on body, html.puppy-cursor-on body * {
+        cursor: var(--puppy-pointer), auto !important;
+    }
+    html.puppy-cursor-on :is(a, button, summary, label, [role="button"]) {
+        cursor: var(--puppy-pointer), pointer !important;
+    }
+    html.puppy-cursor-on :is(input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]), textarea, [contenteditable]:not([contenteditable="false"])),
+    html.puppy-cursor-on [contenteditable]:not([contenteditable="false"]) * {
+        cursor: text !important;
+    }
+    html.puppy-cursor-on :is(select, video, audio, iframe, [data-native-cursor]),
+    html.puppy-cursor-on [data-native-cursor] * { cursor: auto !important; }
+    html.puppy-cursor-on :is(:disabled, [aria-disabled="true"]),
+    html.puppy-cursor-on :is(:disabled, [aria-disabled="true"]) * { cursor: not-allowed !important; }
+}
+@media print { .puppy-cursor-toggle { display: none; } }
