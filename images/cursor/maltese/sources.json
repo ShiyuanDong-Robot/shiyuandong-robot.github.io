@@ -1,0 +1,128 @@
+{
+  "creator": "Moonlab",
+  "character": "Maltese / 线条小狗",
+  "copyright": "©MALTESE",
+  "author_page": "https://store.line.me/stickershop/author/173491/th?page=2",
+  "provenance": "Original public main preview PNGs from the creator’s LINE Store listings. Source PNG bytes are preserved. SVG wrappers scale the artwork and omit transparent margins only; no character artwork is redrawn.",
+  "assets": [
+    {
+      "mood": "idle",
+      "label": "呆萌",
+      "product_id": "21242047",
+      "product_title": "Maltese puppy life2",
+      "source_page": "https://store.line.me/stickershop/product/21242047/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/21242047/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/idle.png",
+      "cursor": "images/cursor/maltese-idle.svg",
+      "sha256": "3255f9ae748d40c72116d1d500abf329ac844495b99d4d324806df390105b95f",
+      "view_box": [
+        60,
+        105,
+        100,
+        74
+      ]
+    },
+    {
+      "mood": "happy",
+      "label": "开心",
+      "product_id": "22116484",
+      "product_title": "Maltese puppy life3",
+      "source_page": "https://store.line.me/stickershop/product/22116484/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/22116484/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/happy.png",
+      "cursor": "images/cursor/maltese-happy.svg",
+      "sha256": "4310dabac821311eba4472d0c78f302145f584cb8fd1aee1a4484c0fd48e4a61",
+      "view_box": [
+        65,
+        60,
+        115,
+        112
+      ]
+    },
+    {
+      "mood": "study",
+      "label": "探头",
+      "product_id": "28600536",
+      "product_title": "Baby Maltese 2",
+      "source_page": "https://store.line.me/stickershop/product/28600536/zh-Hant",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/28600536/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/study.png",
+      "cursor": "images/cursor/maltese-study.svg",
+      "sha256": "219480d1147f19de35e197e4a1227834dd269a2b33c7bd8e19965fc179e669e5",
+      "view_box": [
+        36,
+        52,
+        182,
+        132
+      ]
+    },
+    {
+      "mood": "stars",
+      "label": "庆祝",
+      "product_id": "22200173",
+      "product_title": "Maltese puppy life4",
+      "source_page": "https://store.line.me/stickershop/product/22200173/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/22200173/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/stars.png",
+      "cursor": "images/cursor/maltese-stars.svg",
+      "sha256": "4908b97a9dd84b9bde546ccbe5423869508f411dbd0d4200478673b1d49594d9",
+      "view_box": [
+        0,
+        0,
+        240,
+        192
+      ]
+    },
+    {
+      "mood": "love",
+      "label": "抱心",
+      "product_id": "22723957",
+      "product_title": "Maltese puppy life5",
+      "source_page": "https://store.line.me/stickershop/product/22723957/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/22723957/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/love.png",
+      "cursor": "images/cursor/maltese-love.svg",
+      "sha256": "c99c6c51b6fd7e6c449c2735ff360b33d9394ac1a21b3c5f6e22eead0aac5968",
+      "view_box": [
+        33,
+        68,
+        185,
+        168
+      ]
+    },
+    {
+      "mood": "wave",
+      "label": "招手",
+      "product_id": "30114491",
+      "product_title": "Maltese puppy life6",
+      "source_page": "https://store.line.me/stickershop/product/30114491/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/30114491/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/wave.png",
+      "cursor": "images/cursor/maltese-wave.svg",
+      "sha256": "f1d9d6c98f435e0e61d18d3db7219b008b6bee8501c6aa5241dcf5395e27b86b",
+      "view_box": [
+        0,
+        66,
+        240,
+        174
+      ]
+    },
+    {
+      "mood": "wink",
+      "label": "送心",
+      "product_id": "17142161",
+      "product_title": "Maltese puppy life",
+      "source_page": "https://store.line.me/stickershop/product/17142161/th",
+      "source_url": "https://stickershop.line-scdn.net/stickershop/v1/product/17142161/LINEStorePC/main.png?v=1",
+      "file": "images/cursor/maltese/wink.png",
+      "cursor": "images/cursor/maltese-wink.svg",
+      "sha256": "c9a83c9743c92cceee9093f2f02c2e24101a893da16185ca1eadeb7420f234cb",
+      "view_box": [
+        48,
+        80,
+        122,
+        100
+      ]
+    }
+  ]
+}
