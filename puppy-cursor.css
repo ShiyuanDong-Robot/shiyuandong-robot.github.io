@@ -1,11 +1,11 @@
 /* Native cursor sprites keep the click point precise, including inside dialogs. */
-html { --puppy-pointer: url("images/cursor/puppy-idle.svg") 3 3; }
-html[data-puppy-mood="happy"] { --puppy-pointer: url("images/cursor/puppy-happy.svg") 3 3; }
-html[data-puppy-mood="study"] { --puppy-pointer: url("images/cursor/puppy-study.svg") 3 3; }
-html[data-puppy-mood="stars"] { --puppy-pointer: url("images/cursor/puppy-stars.svg") 3 3; }
-html[data-puppy-mood="love"] { --puppy-pointer: url("images/cursor/puppy-love.svg") 3 3; }
-html[data-puppy-mood="wave"] { --puppy-pointer: url("images/cursor/puppy-wave.svg") 3 3; }
-html[data-puppy-mood="wink"] { --puppy-pointer: url("images/cursor/puppy-wink.svg") 3 3; }
+html { --puppy-pointer: url("images/cursor/maltese-idle.svg") 3 3; }
+html[data-puppy-mood="happy"] { --puppy-pointer: url("images/cursor/maltese-happy.svg") 3 3; }
+html[data-puppy-mood="study"] { --puppy-pointer: url("images/cursor/maltese-study.svg") 3 3; }
+html[data-puppy-mood="stars"] { --puppy-pointer: url("images/cursor/maltese-stars.svg") 3 3; }
+html[data-puppy-mood="love"] { --puppy-pointer: url("images/cursor/maltese-love.svg") 3 3; }
+html[data-puppy-mood="wave"] { --puppy-pointer: url("images/cursor/maltese-wave.svg") 3 3; }
+html[data-puppy-mood="wink"] { --puppy-pointer: url("images/cursor/maltese-wink.svg") 3 3; }
 .puppy-cursor-toggle {
     display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0;
     background: transparent; color: var(--faint); font: inherit; cursor: pointer;

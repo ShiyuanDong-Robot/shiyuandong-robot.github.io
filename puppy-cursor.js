@@ -15,13 +15,14 @@
     let reactionTimer = 0;
     let blankClicks = 0;
     let mood = 'idle';
+    let lastReaction = '';
     try { enabled = localStorage.getItem(storageKey) !== 'off'; } catch { /* Storage is optional. */ }
 
     function setMood(next) {
         if (mood === next) return;
         mood = next;
         root.dataset.puppyMood = next;
-        preview.src = `images/cursor/puppy-${next}.svg`;
+        preview.src = `images/cursor/maltese-${next}.svg`;
     }
 
     function stop() {
@@ -35,7 +36,7 @@
     function syncPreference() {
         toggle.hidden = !capability.matches || !ready;
         toggle.setAttribute('aria-pressed', String(enabled));
-        toggle.title = enabled ? 'Turn off the puppy cursor' : 'Turn on the puppy cursor';
+        toggle.title = `${enabled ? 'Turn off' : 'Turn on'} the Maltese (线条小狗) cursor · ©MALTESE / Moonlab`;
         if (!enabled || !capability.matches) stop();
     }
 
@@ -80,11 +81,15 @@
         if (!track(event) || event.button !== 0 || hovering?.closest(nativeFields) ||
             hovering?.closest('.puppy-cursor-toggle, :disabled, [aria-disabled=true]')) return;
         clearTimeout(reactionTimer);
-        setMood(category(hovering, true));
+        const preferred = category(hovering, true);
+        const alternate = { study: 'stars', stars: 'happy', love: 'wink', wave: 'love', wink: 'happy', happy: 'wave' };
+        lastReaction = [preferred, alternate[preferred], 'love', 'wave', 'stars', 'wink', 'study', 'happy']
+            .find(next => next && next !== mood && next !== lastReaction);
+        setMood(lastReaction);
         reactionTimer = window.setTimeout(() => {
             reactionTimer = 0;
             setMood(category(hovering));
-        }, 1600);
+        }, 2000);
     }, { passive: true });
     document.documentElement.addEventListener('pointerleave', stop, { passive: true });
     document.addEventListener('pointercancel', stop, { passive: true });
@@ -100,7 +105,7 @@
         const image = new Image();
         image.onload = resolve;
         image.onerror = reject;
-        image.src = `images/cursor/puppy-${name}.svg`;
+        image.src = `images/cursor/maltese-${name}.svg`;
     }))).then(() => {
         ready = true;
         root.dataset.puppyMood = mood;
