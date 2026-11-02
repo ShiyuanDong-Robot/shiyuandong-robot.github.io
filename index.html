@@ -9,12 +9,14 @@
     <meta name="visitor-counter-endpoint" content="https://shiyuan-homepage-api.pages.dev/">
     <meta name="homepage-api-fallback" content="https://shiyuan-homepage-visitors.shiyuandongrobotic.workers.dev/">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=15">
+    <link rel="stylesheet" href="styles.css?v=16">
+    <link rel="stylesheet" href="venues.css?v=1">
     <link rel="stylesheet" href="moments.css?v=2">
     <link rel="stylesheet" href="guestbook.css?v=1">
     <link rel="stylesheet" href="puppy-cursor.css?v=2">
     <link rel="stylesheet" href="pet.css?v=1">
     <script src="site.js?v=7" defer></script>
+    <script src="venues.js?v=1" defer></script>
     <script src="moments.js?v=2" defer></script>
     <script src="api.js?v=1" defer></script>
     <script src="visitors.js?v=2" defer></script>
@@ -114,23 +116,35 @@
                 </div>
             </div>
         </section>
-        <section class="block soft" id="venues" aria-labelledby="venues-title">
+        <section class="block venue-section" id="venues" aria-labelledby="venues-title">
             <div class="wrap">
-                <h2 id="venues-title">Journals &amp; Conferences</h2>
-                <ul class="venue-grid" role="list" aria-label="Journals and conferences">
-                    <li><a class="venue-logo" href="https://www.nature.com/npjrobot/" target="_blank" rel="noopener noreferrer" aria-label="npj Robotics"><img src="images/venues/npj-robotics.svg" alt="npj Robotics" width="175" height="32" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://spj.science.org/journal/research" target="_blank" rel="noopener noreferrer" aria-label="Research"><img src="images/venues/research-cover.webp" alt="Research" width="480" height="130" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo venue-logo-tmech" href="http://www.ieee-asme-mechatronics.info/" target="_blank" rel="noopener noreferrer" aria-label="IEEE/ASME Transactions on Mechatronics"><img src="images/venues/tmech-display.svg" alt="IEEE/ASME Transactions on Mechatronics" width="600" height="170" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo venue-logo-ral" href="https://www.ieee-ras.org/publications/ieee-robotics-and-automation-letters/" target="_blank" rel="noopener noreferrer" aria-label="IEEE Robotics and Automation Letters"><img src="images/venues/ral-display.svg" alt="IEEE Robotics and Automation Letters" width="371" height="67" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://onlinelibrary.wiley.com/journal/29981891" target="_blank" rel="noopener noreferrer" aria-label="SmartBot"><img src="images/venues/smartbot-cover.webp" alt="SmartBot" width="480" height="150" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo venue-logo-iros" href="https://2026.ieee-iros.org/" target="_blank" rel="noopener noreferrer" aria-label="IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026)"><img src="images/venues/iros.png" alt="IROS 2026" width="1024" height="665" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://onlinelibrary.wiley.com/journal/26404567" target="_blank" rel="noopener noreferrer" aria-label="Advanced Intelligent Systems"><img src="images/venues/advanced-intelligent-systems-cover.webp" alt="Advanced Intelligent Systems" width="480" height="217" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://www.ieee-tmrb.org/new/" target="_blank" rel="noopener noreferrer" aria-label="IEEE Transactions on Medical Robotics and Bionics"><img src="images/venues/tmrb.png" alt="IEEE Transactions on Medical Robotics and Bionics" width="1279" height="345" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://ieee-ims.org/publication/ieee-tim" target="_blank" rel="noopener noreferrer" aria-label="IEEE Transactions on Instrumentation and Measurement"><img src="images/venues/tim-cover.webp" alt="IEEE Transactions on Instrumentation and Measurement" width="480" height="128" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://opg.optica.org/jlt/home.cfm" target="_blank" rel="noopener noreferrer" aria-label="Journal of Lightwave Technology"><img src="images/venues/jlt-cover.webp" alt="Journal of Lightwave Technology" width="480" height="238" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://opg.optica.org/oe/home.cfm" target="_blank" rel="noopener noreferrer" aria-label="Optics Express"><img src="images/venues/optics-express-cover.webp" alt="Optics Express" width="480" height="196" loading="lazy" decoding="async"></a></li>
-                    <li><a class="venue-logo" href="https://ieee-sensors.org/ieee-sensors-journal/" target="_blank" rel="noopener noreferrer" aria-label="IEEE Sensors Journal"><img src="images/venues/ieee-sensors-journal.webp" alt="IEEE Sensors Journal" width="2048" height="282" loading="lazy" decoding="async"></a></li>
-                </ul>
+                <div class="venue-panel">
+                    <div class="venue-heading">
+                        <div>
+                            <p class="venue-eyebrow"><span aria-hidden="true"></span> Publication venues</p>
+                            <h2 id="venues-title">Journals <span>&amp;</span><br>Conferences<span class="venue-heading-dot">.</span></h2>
+                        </div>
+                        <div class="venue-orbit" aria-hidden="true">
+                            <svg viewBox="0 0 240 140" fill="none"><ellipse cx="120" cy="70" rx="106" ry="43"/><ellipse cx="120" cy="70" rx="106" ry="43" transform="rotate(-28 120 70)"/><ellipse cx="120" cy="70" rx="106" ry="43" transform="rotate(28 120 70)"/><path d="M120 0v140M0 70h240" stroke-dasharray="2 6"/><circle cx="120" cy="70" r="5"/><circle class="venue-orbit-node" cx="213" cy="49" r="4"/><circle class="venue-orbit-node" cx="37" cy="108" r="3"/></svg>
+                            <span>12 selected venues</span>
+                        </div>
+                    </div>
+                    <ul class="venue-directory" role="list" aria-label="Journals and conferences">
+                        <li class="venue-item venue-item-lead"><a class="venue-link" href="https://www.nature.com/npjrobot/" target="_blank" rel="noopener noreferrer" aria-label="npj Robotics"><span class="venue-name venue-name-npj"><span>npj</span> Robotics</span><span class="venue-caption">npj Robotics</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item venue-item-lead"><a class="venue-link" href="https://spj.science.org/journal/research" target="_blank" rel="noopener noreferrer" aria-label="Research"><span class="venue-name venue-name-research">Research</span><span class="venue-caption">A Science Partner Journal</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="http://www.ieee-asme-mechatronics.info/" target="_blank" rel="noopener noreferrer" aria-label="TMECH — IEEE/ASME Transactions on Mechatronics"><span class="venue-name">TMECH</span><span class="venue-caption">IEEE/ASME Transactions <br>on Mechatronics</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="https://www.ieee-ras.org/publications/ieee-robotics-and-automation-letters/" target="_blank" rel="noopener noreferrer" aria-label="RA-L — IEEE Robotics and Automation Letters"><span class="venue-name">RA-L</span><span class="venue-caption">IEEE Robotics and <br>Automation Letters</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="https://onlinelibrary.wiley.com/journal/29981891" target="_blank" rel="noopener noreferrer" aria-label="SmartBot"><span class="venue-name venue-name-smartbot">SmartBot</span><span class="venue-caption">SmartBot</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="https://2026.ieee-iros.org/" target="_blank" rel="noopener noreferrer" aria-label="IROS 2026 — IEEE/RSJ International Conference on Intelligent Robots and Systems"><span class="venue-name">IROS <small>2026</small></span><span class="venue-caption">IEEE/RSJ International Conference <br>on Intelligent Robots and Systems</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="https://onlinelibrary.wiley.com/journal/26404567" target="_blank" rel="noopener noreferrer" aria-label="AIS — Advanced Intelligent Systems"><span class="venue-name">AIS</span><span class="venue-caption">Advanced Intelligent Systems</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item"><a class="venue-link" href="https://www.ieee-tmrb.org/new/" target="_blank" rel="noopener noreferrer" aria-label="TMRB — IEEE Transactions on Medical Robotics and Bionics"><span class="venue-name">TMRB</span><span class="venue-caption">IEEE Transactions on <br>Medical Robotics and Bionics</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item venue-item-compact"><a class="venue-link" href="https://ieee-ims.org/publication/ieee-tim" target="_blank" rel="noopener noreferrer" aria-label="TIM — IEEE Transactions on Instrumentation and Measurement"><span class="venue-name">TIM</span><span class="venue-caption">IEEE Transactions on <br>Instrumentation and Measurement</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item venue-item-compact"><a class="venue-link" href="https://opg.optica.org/jlt/home.cfm" target="_blank" rel="noopener noreferrer" aria-label="JLT — Journal of Lightwave Technology"><span class="venue-name">JLT</span><span class="venue-caption">Journal of <br>Lightwave Technology</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item venue-item-compact"><a class="venue-link" href="https://opg.optica.org/oe/home.cfm" target="_blank" rel="noopener noreferrer" aria-label="Optics Express"><span class="venue-name venue-name-optics">Optics Express</span><span class="venue-caption">Optics Express</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                        <li class="venue-item venue-item-compact"><a class="venue-link" href="https://ieee-sensors.org/ieee-sensors-journal/" target="_blank" rel="noopener noreferrer" aria-label="IEEE Sensors Journal"><span class="venue-name venue-name-sensors">Sensors Journal</span><span class="venue-caption">IEEE Sensors Journal</span><span class="venue-arrow" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                    <div class="venue-footer"><span>Sensing <i aria-hidden="true">/</i> Control <i aria-hidden="true">/</i> Embodied intelligence</span><span>Explore the venues <span aria-hidden="true">↗</span></span></div>
+                </div>
             </div>
         </section>
         <section class="block" id="publications" aria-labelledby="publications-title">
